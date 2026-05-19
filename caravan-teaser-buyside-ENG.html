@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARAVAN — Teaser</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #0B1220;
+  --navy-2: #111D30;
+  --navy-3: #1A2A42;
+  --amber:  #C8922A;
+  --amber-l:#E0A83A;
+  --green:  #0F6E56;
+  --white:  #EEE8DC;
+  --muted:  rgba(238,232,220,0.55);
+  --faint:  rgba(238,232,220,0.10);
+  --mono:   'DM Mono', monospace;
+  --display:'Barlow Condensed', sans-serif;
+  --body:   'Barlow', sans-serif;
+}
+
+body {
+  background: #f0ede8;
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LANG SWITCHER (screen only) ── */
+.lang-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 0 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.lang-switcher button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background 0.15s;
+}
+.lang-switcher button.active { background: #C8922A; color: #0B1220; }
+.lang-switcher button:hover:not(.active) { background: #555; }
+.note {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #888;
+  letter-spacing: 0.1em;
+  padding-bottom: 16px;
+}
+
+/* ── PAGE ── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 48px;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* lang visibility */
+[data-lang] { display: none; }
+[data-lang].active { display: block; }
+span[data-lang].active { display: inline; }
+
+/* ── TOP BAR ── */
+.top-bar {
+  background: var(--navy-3);
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--faint);
+}
+.logo-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-text {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--white);
+}
+.logo-tag {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-left: 1px solid var(--faint);
+  padding-left: 12px;
+}
+.top-bar-right {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.top-bar-right::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--amber);
+  border-radius: 50%;
+}
+
+/* ── HERO QUESTION ── */
+.hero {
+  padding: 36px 32px 28px;
+  border-bottom: 1px solid var(--faint);
+}
+.hero-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-label::before { content: ''; width: 20px; height: 1px; background: var(--amber); }
+.hero-question {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+.hero-question .amb { color: var(--amber); }
+.hero-answer {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+/* ── THREE PAINS ── */
+.pains {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--faint);
+  border-bottom: 1px solid var(--faint);
+}
+.pain {
+  background: var(--navy);
+  padding: 20px 22px;
+}
+.pain-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.pain-title {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+.pain-body {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── MECHANISM ── */
+.mechanism {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--faint);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.mech-left {}
+.mech-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.mech-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+.mech-body {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.mech-analogy {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgba(200,146,42,0.7);
+  font-style: italic;
+  border-left: 2px solid var(--amber);
+  padding-left: 12px;
+  line-height: 1.45;
+}
+
+/* ── RFQ DIAGRAM ── */
+.rfq-diagram {
+  background: var(--navy-2);
+  border: 1px solid var(--faint);
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+.rfq-diagram-title {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  text-align: center;
+  opacity: 0.7;
+}
+.rfq-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.rfq-initiator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.rfq-node-main {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rfq-node-main::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--navy);
+}
+.rfq-node-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  text-align: center;
+}
+.rfq-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+}
+.rfq-line {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200,146,42,0.6), rgba(200,146,42,0.15));
+  position: relative;
+}
+.rfq-line::after {
+  content: '›';
+  position: absolute;
+  right: -4px;
+  top: -7px;
+  color: rgba(200,146,42,0.4);
+  font-size: 12px;
+}
+.rfq-buyers {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.rfq-buyer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  background: rgba(238,232,220,0.04);
+  border: 1px solid rgba(238,232,220,0.08);
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+.rfq-buyer-name {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: rgba(238,232,220,0.55);
+  letter-spacing: 0.04em;
+}
+.rfq-buyer-price {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--amber);
+  font-weight: 500;
+}
+.rfq-buyer.best {
+  border-color: rgba(200,146,42,0.35);
+  background: rgba(200,146,42,0.07);
+}
+.rfq-buyer.best .rfq-buyer-name { color: var(--white); }
+
+/* ── PROOF + SOCIAL ── */
+.proof {
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--faint);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.proof-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.proof-number {
+  font-family: var(--display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.proof-label {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.proof-quote {
+  border-left: 2px solid var(--faint);
+  padding-left: 20px;
+}
+.proof-quote-text {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.4;
+  font-style: italic;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+.proof-quote-attr {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── CTA ── */
+.cta {
+  padding: 22px 32px;
+  background: var(--navy-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: auto;
+  border-top: 1px solid var(--faint);
+}
+.cta-left {}
+.cta-headline {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+.cta-sub {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cta-email {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200,146,42,0.4);
+  padding-bottom: 2px;
+}
+.cta-url {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.cta-badge {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--amber);
+  padding: 5px 12px;
+  border-radius: 2px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  padding: 12px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--faint);
+}
+.footer-logo {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(238,232,220,0.3);
+}
+.footer-meta {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(238,232,220,0.2);
+}
+
+/* ── PRINT ── */
+@media print {
+  body { background: none; }
+  .lang-switcher, .note { display: none !important; }
+  .page { margin: 0; width: 210mm; min-height: 297mm; page-break-after: always; }
+  [data-lang] { display: none !important; }
+  [data-lang].active { display: block !important; }
+  span[data-lang].active { display: inline !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="lang-switcher">
+  <button class="active" onclick="setLang('en')">EN</button>
+  <button onclick="setLang('nl')">NL</button>
+</div>
+<div class="note">Screen preview · File → Print → Save as PDF to export</div>
+
+<!-- ══════════════════════════════════════ -->
+<!--  PAGE 1 — ENGLISH                     -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-en">
+
+  <div class="top-bar">
+    <div class="logo-mark">
+      <svg width="32" height="26" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="9" cy="22" r="5" fill="#C8922A"/>
+        <circle cx="9" cy="22" r="3" fill="#0B1220"/>
+        <circle cx="9" cy="22" r="1.5" fill="#C8922A"/>
+        <line x1="14" y1="22" x2="24" y2="10" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5"/>
+        <line x1="14" y1="22" x2="25" y2="17" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.7"/>
+        <line x1="14" y1="22" x2="25" y2="22" stroke="#C8922A" stroke-width="1" stroke-dasharray="2 2" opacity="0.9"/>
+        <line x1="14" y1="22" x2="25" y2="27" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.7"/>
+        <line x1="14" y1="22" x2="24" y2="34" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5"/>
+        <circle cx="26" cy="10" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1"/>
+        <circle cx="26" cy="17" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1" opacity="0.8"/>
+        <circle cx="26" cy="22" r="4" fill="#0B1220" stroke="#C8922A" stroke-width="1.5"/>
+        <circle cx="26" cy="27" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1" opacity="0.8"/>
+        <circle cx="26" cy="34" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1"/>
+      </svg>
+      <div class="logo-text">CARAVAN</div>
+      <div class="logo-tag">Fresh Produce Trading Infrastructure</div>
+    </div>
+    <div class="top-bar-right">Early access · 2026</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-label">For fresh produce buyers</div>
+    <h1 class="hero-question">
+      You sourced your volume.<br>
+      You got <span class="amb">one price.</span><br>
+      Was it the best one?
+    </h1>
+    <p class="hero-answer">
+      In fresh produce, you almost never know. You call a trusted supplier, agree a price, and move on. But across the market that same day, other offers exist — sometimes better, sometimes significantly better. You'll never see them unless you ask everyone at once.
+    </p>
+  </div>
+
+  <div class="pains">
+    <div class="pain">
+      <div class="pain-num">01</div>
+      <div class="pain-title">You negotiate blind</div>
+      <p class="pain-body">Your supplier knows the market. You know your budget. That asymmetry costs you on every deal you close.</p>
+    </div>
+    <div class="pain">
+      <div class="pain-num">02</div>
+      <div class="pain-title">Your network is your ceiling</div>
+      <p class="pain-body">You can only buy from who you know. When your regular supplier can't deliver, you're scrambling — not sourcing.</p>
+    </div>
+    <div class="pain">
+      <div class="pain-num">03</div>
+      <div class="pain-title">Sourcing takes hours you don't have</div>
+      <p class="pain-body">Phone calls. WhatsApp chains. Follow-ups. Every kilo of fresh produce you buy costs more time than it should.</p>
+    </div>
+  </div>
+
+  <div class="mechanism">
+    <div class="mech-left">
+      <div class="mech-label">The protocol</div>
+      <h2 class="mech-title">Send one request.<br>Receive every offer.</h2>
+      <p class="mech-body">
+        CARAVAN is a Request for Quote (RFQ) platform built for fresh produce. You send a single request — product, volume, delivery date, indicative price — to multiple suppliers simultaneously. Each responds with their best offer. You see all prices at once, choose the best, and the deal is confirmed and recorded.
+      </p>
+      <p class="mech-analogy">
+        The same protocol used in global financial markets to run competitive price discovery — now brought to fresh produce.
+      </p>
+    </div>
+    <div class="rfq-diagram">
+      <div class="rfq-diagram-title">How a deal gets done on CARAVAN</div>
+      <div class="rfq-flow">
+        <div class="rfq-initiator">
+          <div class="rfq-node-main"></div>
+          <div class="rfq-node-label">Buyer<br>sends RFQ</div>
+        </div>
+        <div class="rfq-lines">
+          <div class="rfq-line"></div>
+          <div class="rfq-line"></div>
+          <div class="rfq-line" style="opacity:0.7"></div>
+          <div class="rfq-line" style="opacity:0.5"></div>
+          <div class="rfq-line" style="opacity:0.35"></div>
+        </div>
+        <div class="rfq-buyers">
+          <div class="rfq-buyer best">
+            <div class="rfq-buyer-name">Supplier D · DE</div>
+            <div class="rfq-buyer-price">€1.24 ★</div>
+          </div>
+          <div class="rfq-buyer">
+            <div class="rfq-buyer-name">Supplier C · BE</div>
+            <div class="rfq-buyer-price">€1.26</div>
+          </div>
+          <div class="rfq-buyer">
+            <div class="rfq-buyer-name">Supplier B · NL</div>
+            <div class="rfq-buyer-price">€1.28</div>
+          </div>
+          <div class="rfq-buyer">
+            <div class="rfq-buyer-name">Supplier A · BE</div>
+            <div class="rfq-buyer-price">€1.31</div>
+          </div>
+          <div class="rfq-buyer" style="opacity:0.45">
+            <div class="rfq-buyer-name">Supplier E · NL</div>
+            <div class="rfq-buyer-price">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="proof-stat">
+      <div class="proof-number">&lt; 5 min</div>
+      <div class="proof-label">From sending an RFQ to receiving<br>multiple binding offers. No calls required.</div>
+    </div>
+    <div class="proof-quote">
+      <p class="proof-quote-text">"Fresh produce trade is relationship-driven and bilaterally negotiated — exactly the conditions where a structured RFQ protocol creates the most value for buyers."</p>
+      <div class="proof-quote-attr">CARAVAN — founding rationale</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-left">
+      <div class="cta-headline">Early conversations welcome.</div>
+      <p class="cta-sub">We are building CARAVAN with a small group of buyers and producers<br>
+      across Belgium and the Netherlands. No commitment required.</p>
+    </div>
+    <div class="cta-right">
+      <div class="cta-badge">Request a conversation →</div>
+      <a class="cta-email" href="mailto:info@caravan.trade">info@caravan.trade</a>
+      <div class="cta-url">caravan.trade</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">CARAVAN</div>
+    <div class="footer-meta">Fresh Produce Trading Infrastructure · Belgium · 2026</div>
+  </div>
+
+</div><!-- /page-en -->
+
+
+<!-- ══════════════════════════════════════ -->
+<!--  PAGE 2 — DUTCH                       -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-nl" style="display:none">
+
+  <div class="top-bar">
+    <div class="logo-mark">
+      <svg width="32" height="26" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="9" cy="22" r="5" fill="#C8922A"/>
+        <circle cx="9" cy="22" r="3" fill="#0B1220"/>
+        <circle cx="9" cy="22" r="1.5" fill="#C8922A"/>
+        <line x1="14" y1="22" x2="24" y2="10" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5"/>
+        <line x1="14" y1="22" x2="25" y2="17" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.7"/>
+        <line x1="14" y1="22" x2="25" y2="22" stroke="#C8922A" stroke-width="1" stroke-dasharray="2 2" opacity="0.9"/>
+        <line x1="14" y1="22" x2="25" y2="27" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.7"/>
+        <line x1="14" y1="22" x2="24" y2="34" stroke="#C8922A" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5"/>
+        <circle cx="26" cy="10" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1"/>
+        <circle cx="26" cy="17" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1" opacity="0.8"/>
+        <circle cx="26" cy="22" r="4" fill="#0B1220" stroke="#C8922A" stroke-width="1.5"/>
+        <circle cx="26" cy="27" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1" opacity="0.8"/>
+        <circle cx="26" cy="34" r="3.5" fill="#0B1220" stroke="#C8922A" stroke-width="1"/>
+      </svg>
+      <div class="logo-text">CARAVAN</div>
+      <div class="logo-tag">Handelsinfrastructuur voor Verse Producten</div>
+    </div>
+    <div class="top-bar-right">Early access · 2026</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-label">Voor inkopers van verse AGF-producten</div>
+    <h1 class="hero-question">
+      Je hebt je volume ingekocht.<br>
+      Je kreeg <span class="amb">één prijs.</span><br>
+      Was het de beste?
+    </h1>
+    <p class="hero-answer">
+      In verse producten weet je dat bijna nooit. Je belt een vaste leverancier, spreekt een prijs af en gaat verder. Maar diezelfde dag bestaan er elders in de markt andere aanbiedingen — soms beter, soms aanzienlijk beter. Je ziet ze nooit, tenzij je iedereen tegelijk vraagt.
+    </p>
+  </div>
+
+  <div class="pains">
+    <div class="pain">
+      <div class="pain-num">01</div>
+      <div class="pain-title">Je onderhandelt blind</div>
+      <p class="pain-body">Jouw leverancier kent de markt. Jij kent je budget. Die asymmetrie kost je geld op elke deal die je sluit.</p>
+    </div>
+    <div class="pain">
+      <div class="pain-num">02</div>
+      <div class="pain-title">Je netwerk is je plafond</div>
+      <p class="pain-body">Je kunt enkel kopen van wie je kent. Als je vaste leverancier niet kan leveren, ben je aan het zoeken — niet aan het inkopen.</p>
+    </div>
+    <div class="pain">
+      <div class="pain-num">03</div>
+      <div class="pain-title">Inkopen kost tijd die je niet hebt</div>
+      <p class="pain-body">Telefoontjes. WhatsApp-ketens. Opvolging. Elke kilo verse producten die je inkoopt kost meer tijd dan nodig.</p>
+    </div>
+  </div>
+
+  <div class="mechanism">
+    <div class="mech-left">
+      <div class="mech-label">Het protocol</div>
+      <h2 class="mech-title">Stuur één aanvraag.<br>Ontvang elk aanbod.</h2>
+      <p class="mech-body">
+        CARAVAN is een Request for Quote (RFQ) platform gebouwd voor verse producten. Je stuurt één aanvraag — product, volume, leveringsdatum, indicatieve prijs — naar meerdere leveranciers tegelijk. Elk reageert met hun beste aanbod. Jij ziet alle prijzen in één overzicht, kiest het beste, en de deal wordt bevestigd en geregistreerd.
+      </p>
+      <p class="mech-analogy">
+        Hetzelfde protocol dat in wereldwijde financiële markten wordt gebruikt voor competitieve prijsvorming — nu beschikbaar voor de versmarkt.
+      </p>
+    </div>
+    <div class="rfq-diagram">
+      <div class="rfq-diagram-title">Hoe een deal tot stand komt op CARAVAN</div>
+      <div class="rfq-flow">
+        <div class="rfq-initiator">
+          <div class="rfq-node-main"></div>
+          <div class="rfq-node-label">Koper<br>stuurt RFQ</div>
+        </div>
+        <div class="rfq-lines">
+          <div class="rfq-line"></div>
+          <div class="rfq-line"></div>
+          <div class="rfq-line" style="opacity:0.7"></div>
+          <div class="rfq-line" style="opacity:0.5"></div>
+          <div class="rfq-line" style="opacity:0.35"></div>
+        </div>
+        <div class="rfq-buyers">
+          <div class="rfq-buyer best">
+            <div class="rfq-buyer-name">Exporteur D · DE</div>
+            <div class="rfq-buyer-price">€1.24 ★</div>
+          </div>
+          <div class="rfq-buyer">
+            <div class="rfq-buyer-name">Teler C · BE</div>
+            <div class="rfq-buyer-price">€1.26</div>
+          </div>
+          <div class="rfq-buyer">
+            <div class="rfq-buyer-name">Teler B · NL</div>
+            <div class="rfq-buyer-price">€1.28</div>
+          </div>
+          <div class="rfq-buyer">
+            <div class="rfq-buyer-name">Teler A · BE</div>
+            <div class="rfq-buyer-price">€1.31</div>
+          </div>
+          <div class="rfq-buyer" style="opacity:0.45">
+            <div class="rfq-buyer-name">Coöp. E · NL</div>
+            <div class="rfq-buyer-price">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="proof-stat">
+      <div class="proof-number">&lt; 5 min</div>
+      <div class="proof-label">Van het versturen van een RFQ tot het<br>ontvangen van meerdere bindende aanbiedingen.</div>
+    </div>
+    <div class="proof-quote">
+      <p class="proof-quote-text">"De versmarkt is relatiegericht en bilateraal onderhandeld — precies de omstandigheden waarbij een gestructureerd RFQ-protocol de meeste waarde creëert voor inkopers."</p>
+      <div class="proof-quote-attr">CARAVAN — oprichtingsrationale</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-left">
+      <div class="cta-headline">Vroege gesprekken zijn welkom.</div>
+      <p class="cta-sub">We bouwen CARAVAN samen met een kleine groep kopers en producenten<br>
+      in België en Nederland. Geen commitment vereist.</p>
+    </div>
+    <div class="cta-right">
+      <div class="cta-badge">Plan een gesprek →</div>
+      <a class="cta-email" href="mailto:info@caravan.trade">info@caravan.trade</a>
+      <div class="cta-url">caravan.trade</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">CARAVAN</div>
+    <div class="footer-meta">Handelsinfrastructuur voor Verse Producten · België · 2026</div>
+  </div>
+
+</div><!-- /page-nl -->
+
+<script>
+function setLang(lang) {
+  document.getElementById('page-en').style.display = lang === 'en' ? 'flex' : 'none';
+  document.getElementById('page-nl').style.display = lang === 'nl' ? 'flex' : 'none';
+  document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+}
+// Default EN
+document.getElementById('page-en').style.display = 'flex';
+document.getElementById('page-nl').style.display = 'none';
+</script>
+</body>
+</html>

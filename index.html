@@ -167,7 +167,7 @@ nav.top {
 .dsdot:hover { background: rgba(238,232,220,.4); }
 .dsdot.on { background: var(--amber); }
 .demo-cap { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; }
-.demo-browser { background: #0B1220; border-radius: 10px; overflow: hidden; border: 1px solid var(--hairline); position: relative; box-shadow: 0 32px 72px -20px rgba(0,0,0,.7); height: 420px; display: flex; flex-direction: column; }
+.demo-browser { background: #0B1220; border-radius: 10px; overflow: hidden; border: 1px solid var(--hairline); position: relative; box-shadow: 0 32px 72px -20px rgba(0,0,0,.7); height: 520px; display: flex; flex-direction: column; }
 .demo-chrome { background: #1A2A42; padding: 9px 12px; display: flex; align-items: center; gap: 9px; border-bottom: 1px solid rgba(238,232,220,.1); flex-shrink: 0; }
 .demo-dots { display: flex; gap: 5px; }
 .demo-dot { width: 9px; height: 9px; border-radius: 50%; }
@@ -280,7 +280,26 @@ nav.top {
 .doltbl tr:last-child { border-bottom: none; }
 .dolbtn2 { background: #0078D4; color: #fff; font-size: 9px; padding: 5px 12px; border-radius: 2px; cursor: default; display: inline-block; margin-top: 8px; }
 .dolft { font-size: 9px; color: #a19f9d; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e1dfdd; line-height: 1.6; }
-.dmouse { position: absolute; pointer-events: none; z-index: 99; transition: top .55s cubic-bezier(.4,0,.2,1), left .55s cubic-bezier(.4,0,.2,1); opacity: 0; }
+/* Windows toast notification */
+.dtoast {
+  position: absolute; bottom: 16px; right: 16px;
+  width: 320px; background: #2B2B2B;
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  transform: translateX(360px); opacity: 0;
+  transition: transform .4s cubic-bezier(.2,0,.2,1), opacity .4s ease;
+  z-index: 80;
+}
+.dtoast.dtoast-show { transform: translateX(0); opacity: 1; }
+.dtoast-bar { height: 3px; background: #0078D4; width: 100%; }
+.dtoast-inner { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; }
+.dtoast-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+.dtoast-content { flex: 1; min-width: 0; }
+.dtoast-app { font-size: 9px; color: rgba(255,255,255,.5); letter-spacing: .04em; margin-bottom: 2px; font-family: Segoe UI,sans-serif; }
+.dtoast-title { font-size: 11px; font-weight: 600; color: #fff; margin-bottom: 2px; font-family: Segoe UI,sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dtoast-body { font-size: 10px; color: rgba(255,255,255,.65); line-height: 1.4; font-family: Segoe UI,sans-serif; }
+.dtoast-time { font-size: 9px; color: rgba(255,255,255,.35); white-space: nowrap; flex-shrink: 0; font-family: Segoe UI,sans-serif; }
+ position: absolute; pointer-events: none; z-index: 99; transition: top .55s cubic-bezier(.4,0,.2,1), left .55s cubic-bezier(.4,0,.2,1); opacity: 0; }
 .dmouse.show { opacity: 1; }
 .dring { position: absolute; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #C8922A; pointer-events: none; z-index: 100; transform: translate(-50%,-50%) scale(0); opacity: 0; }
 .dring.fire { animation: dcr .45s ease forwards; }
@@ -596,43 +615,48 @@ span[data-lang].active { display: inline; }
         </div>
 
         <div id="ds7" class="dscr">
-          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn">My Supply</div><div class="dtn">RFQ Board</div><div class="dtn da">Inbox</div></div></div><div class="dtbst">Market Open · 09:15 UTC</div></div>
-          <div class="dbody" style="padding:0">
-            <div style="padding:8px 14px 6px;border-bottom:1px solid rgba(238,232,220,.05);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#C8922A;opacity:.7">Inbox</div>
-            <div class="dirow dunread dfin" id="dirow1" style="animation-delay:.1s">
-              <div class="diav" style="background:#0078D4;color:#fff">CV</div>
-              <div style="flex:1"><div class="disubj">✓ Deal confirmed — RFQ-2026-0521 · Radijsjes · 19 May</div><div class="diprev">CARAVAN · 12,000 kg · €1.31/kg · Buyer B · 19 May · DDP</div></div>
-              <div class="ditime">09:15</div>
+          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn">My Supply</div><div class="dtn">RFQ Board</div><div class="dtn da">History</div></div></div><div class="dtbst">Market Open · 09:15 UTC</div></div>
+          <div class="dbody" style="position:relative">
+            <div class="dcbox"><div class="dci">✓</div><div class="dct">Deal confirmed &amp; logged</div><div class="dcs">RFQ-2026-0521 · Radijsjes · Ronde Rode · 19 May</div><div class="dcd">€1.31 / kg · 12,000 kg · Buyer B · BE · DDP</div></div>
+            <div class="dstitle">My deals</div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
+            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.38;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <!-- Windows toast notification -->
+            <div class="dtoast" id="dtoast">
+              <div class="dtoast-bar"></div>
+              <div class="dtoast-inner">
+                <div class="dtoast-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="2" fill="#0078D4"/><path d="M3 8.5L6.5 12 13 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="dtoast-content">
+                  <div class="dtoast-app">Microsoft Outlook</div>
+                  <div class="dtoast-title">CARAVAN — Deal confirmed</div>
+                  <div class="dtoast-body">Radijsjes · €1.31/kg · 12,000 kg · Buyer B · 19 May</div>
+                </div>
+                <div class="dtoast-time">now</div>
+              </div>
             </div>
-            <div class="dirow dfin" style="animation-delay:.25s;opacity:.32"><div class="diav" style="background:rgba(238,232,220,.07);color:rgba(238,232,220,.3)">—</div><div style="flex:1"><div class="disubj" style="color:rgba(238,232,220,.35);font-weight:400">Market summary · W20</div><div class="diprev">3 RFQs sent, 2 deals closed...</div></div><div class="ditime">Mon</div></div>
           </div>
         </div>
 
         <div id="ds8" class="dscr">
-          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn">My Supply</div><div class="dtn">RFQ Board</div><div class="dtn da">Inbox</div></div></div><div class="dtbst">Market Open · 09:15 UTC</div></div>
-          <div style="position:relative">
-            <div style="padding:8px 14px 6px;border-bottom:1px solid rgba(238,232,220,.05);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#C8922A;opacity:.7">Inbox</div>
-            <div class="dirow dunread" id="dirow2" style="opacity:.35"><div class="diav" style="background:#0078D4;color:#fff">CV</div><div style="flex:1"><div class="disubj">✓ Deal confirmed — RFQ-2026-0521</div><div class="diprev">CARAVAN · 12,000 kg · €1.31/kg...</div></div><div class="ditime">09:15</div></div>
-            <div class="dolpopup" id="dolp">
-              <div class="doltop"><div class="dollogo">Outlook</div><div class="dolacts"><div class="dolact">Reply</div><div class="dolact">Forward</div><div class="dolact">Archive</div></div></div>
-              <div class="dolrib"><div class="dolrbtn">Reply</div><div class="dolrbtn">Reply All</div><div class="dolrbtn">Forward</div><div class="dolrsep"></div><div class="dolrbtn">Delete</div><div class="dolrbtn">Archive</div></div>
-              <div class="dolhdr">
-                <div class="dolsubj">✓ Deal confirmed — RFQ-2026-0521 · Radijsjes · 19 May</div>
-                <div class="dolmr"><div class="dolav">CV</div><div style="flex:1"><div class="dolfn">CARAVAN <span style="font-weight:400;color:#605e5c;font-size:10px">&lt;deals@caravan.trade&gt;</span></div><div class="dolto">To: producer@westflanders.be</div></div><div class="doltr">Today, 09:15</div></div>
-              </div>
-              <div class="dolbody">
-                <div class="dolgr">Dear Producer,<br><br>Your RFQ has been matched and the deal is confirmed. An identical confirmation has been sent to Buyer B.</div>
-                <div class="dolhl"><div><div class="dolhll">Total deal value</div><div class="dolhlv">€15,720</div></div><div style="text-align:right"><div class="dolhll">Price per kg</div><div class="dolhlv">€1.31</div></div></div>
-                <table class="doltbl">
-                  <tr><td>Product</td><td>Radijsjes · Ronde Rode · Class I</td></tr>
-                  <tr><td>Volume</td><td>12,000 kg</td></tr>
-                  <tr><td>Buyer</td><td>Buyer B · Antwerp · Belgium</td></tr>
-                  <tr><td>Delivery</td><td>19 May 2026 · DDP</td></tr>
-                  <tr><td>Reference</td><td>RFQ-2026-0521</td></tr>
-                  <tr><td>Confirmed</td><td>09:15 UTC · 19 May 2026</td></tr>
-                </table>
-                <div class="dolbtn2">View audit trail on CARAVAN →</div>
-                <div class="dolft">Automated confirmation from CARAVAN. Both parties hold an identical record.</div>
+          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn">My Supply</div><div class="dtn">RFQ Board</div><div class="dtn da">History</div></div></div><div class="dtbst">Market Open · 09:15 UTC</div></div>
+          <div class="dbody" style="position:relative">
+            <div class="dcbox"><div class="dci">✓</div><div class="dct">Deal confirmed &amp; logged</div><div class="dcs">RFQ-2026-0521 · Radijsjes · Ronde Rode · 19 May</div><div class="dcd">€1.31 / kg · 12,000 kg · Buyer B · BE · DDP</div></div>
+            <div class="dstitle">My deals</div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
+            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.38;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <!-- Windows toast notification — both parties -->
+            <div class="dtoast dtoast-show" id="dtoast2">
+              <div class="dtoast-bar"></div>
+              <div class="dtoast-inner">
+                <div class="dtoast-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="2" fill="#0078D4"/><path d="M3 8.5L6.5 12 13 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="dtoast-content">
+                  <div class="dtoast-app">Microsoft Outlook · 2 new messages</div>
+                  <div class="dtoast-title">CARAVAN — Deal confirmed (both parties)</div>
+                  <div class="dtoast-body">Identical confirmation sent to producer@westflanders.be and buyer@buyerb.be</div>
+                </div>
+                <div class="dtoast-time">now</div>
               </div>
             </div>
           </div>
@@ -1069,9 +1093,9 @@ var dacts=[
   {s:'ds3',url:'caravan.trade/supply',cap:'Supply loaded — click a line to place on the market',dur:2800,go:dDoS3},
   {s:'ds4',url:'caravan.trade/supply/rfq/new',cap:'Counterparties — your network, new buyers, open demand',dur:8000,go:dDoS4},
   {s:'ds5',url:'caravan.trade/rfq/2026-0521',cap:'RFQ live — countdown running, quotes arriving one by one',dur:8500,go:dDoS5},
-  {s:'ds6',url:'caravan.trade/history',cap:'Deal confirmed — logged in your audit trail',dur:3200,go:null},
-  {s:'ds7',url:'caravan.trade/inbox',cap:'Deal confirmation received in inbox',dur:3400,go:null},
-  {s:'ds8',url:'caravan.trade/inbox',cap:'Outlook email — full deal record sent to both parties',dur:6000,go:dDoS8},
+  {s:'ds6',url:'caravan.trade/history',cap:'Deal confirmed — logged in your audit trail',dur:3000,go:null},
+  {s:'ds7',url:'caravan.trade/history',cap:'Both parties notified — deal confirmation sent by email',dur:3800,go:dDoS7},
+  {s:'ds8',url:'caravan.trade/history',cap:'Identical audit trail received by both producer and buyer',dur:3500,go:null},
 ];
 
 function dNext(){
@@ -1153,7 +1177,10 @@ function dDoS5(){
   });
   DT(function(){if(dpaused)return;D('dabtn').style.opacity='1';dMove(D('dabtn'),function(){dClick(D('dabtn'));});},6200);
 }
-function dDoS8(){var r=D('dirow2');if(!r||dpaused)return;DT(function(){dMove(r,function(){r.classList.add('dhov');dClick(r);});},700);}
+function dDoS7(){
+  var t=D('dtoast');if(!t)return;
+  DT(function(){t.classList.add('dtoast-show');},600);
+}
 
 dBindDots();
 DT(dNext,dacts[0].dur);
