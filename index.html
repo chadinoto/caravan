@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CARAVAN — The Digital Trade Route for Fresh Produce</title>
-<meta name="description" content="CARAVAN is the first RFQ-based trading platform for fresh produce — turning bilateral negotiations between producers, exporters and buyers into structured, transparent, recorded trades.">
+<meta name="description" content="CARAVAN is the first RFQ-based trading platform for fresh produce — turning bilateral negotiations between growers, exporters and buyers into structured, transparent, recorded trades.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -158,6 +158,28 @@ nav.top {
 .tag-live { background: rgba(74,222,128,0.1); color: #4ADE80; border: 1px solid rgba(74,222,128,0.3); }
 .tag-q { background: rgba(200,146,42,0.1); color: var(--amber); border: 1px solid rgba(200,146,42,0.3); }
 .tag-c { background: var(--faint); color: var(--muted); border: 1px solid transparent; }
+
+/* ── PERSPECTIVE SWITCHER ── */
+.persp-switcher {
+  display: inline-flex;
+  margin-bottom: 14px;
+  border: 1px solid var(--hairline);
+  background: var(--navy-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.persp-btn {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; padding: 8px 18px;
+  background: transparent; border: none; cursor: pointer;
+  color: var(--muted); transition: color 0.15s, background 0.15s;
+  display: flex; align-items: center; gap: 7px;
+}
+.persp-btn + .persp-btn { border-left: 1px solid var(--hairline); }
+.persp-btn.active { background: rgba(200,146,42,0.1); color: var(--amber); }
+.persp-btn:hover:not(.active) { color: var(--white); background: var(--faint); }
+.persp-btn svg { opacity: 0.7; }
+.persp-btn.active svg { opacity: 1; }
 
 /* ── ANIMATED DEMO ── */
 .demo-outer { margin-top: 56px; }
@@ -510,7 +532,7 @@ span[data-lang].active { display: inline; }
       <span data-lang="nl">Waar aanbod eindelijk zijn prijs vindt.</span>
     </div>
     <p class="hero-lead">
-      <span data-lang="en" class="active">CARAVAN is the first Request for Quote (RFQ) based trading platform for fresh produce — turning bilateral negotiations between producers, exporters and buyers into structured, transparent, recorded trades.</span>
+      <span data-lang="en" class="active">CARAVAN is the first Request for Quote (RFQ) based trading platform for fresh produce — turning bilateral negotiations between growers, exporters and buyers into structured, transparent, recorded trades.</span>
       <span data-lang="nl">CARAVAN is het eerste Request for Quote (RFQ) gebaseerde handelsplatform voor verse producten — bilaterale onderhandelingen tussen producenten, exporteurs en kopers omzetten in gestructureerde, transparante, geregistreerde transacties.</span>
     </p>
     <div class="hero-cta">
@@ -527,7 +549,22 @@ span[data-lang].active { display: inline; }
 
     <!-- ANIMATED PRODUCT DEMO -->
     <div class="demo-outer">
-      <div class="demo-caption-row">
+      <!-- Perspective switcher -->
+      <div class="persp-switcher" role="group" aria-label="Platform perspective">
+        <button class="persp-btn active" id="persp-sell" onclick="dSwitchPersp('sell')">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="2" cy="5.5" r="2" fill="#C8922A"/><line x1="4" y1="5.5" x2="7" y2="2" stroke="#C8922A" stroke-width="0.9" stroke-dasharray="1.5 1.2"/><line x1="4" y1="5.5" x2="7.2" y2="5.5" stroke="#C8922A" stroke-width="1" stroke-dasharray="1.5 1.2"/><line x1="4" y1="5.5" x2="7" y2="9" stroke="#C8922A" stroke-width="0.9" stroke-dasharray="1.5 1.2"/><circle cx="8" cy="2" r="1.5" fill="none" stroke="#C8922A" stroke-width="0.9"/><circle cx="8.2" cy="5.5" r="1.5" fill="none" stroke="#C8922A" stroke-width="0.9"/><circle cx="8" cy="9" r="1.5" fill="none" stroke="#C8922A" stroke-width="0.9"/></svg>
+          <span data-lang="en" class="active">Sell side — grower / cooperative</span>
+          <span data-lang="nl">Aanbodkant — teler / coöperatie</span>
+        </button>
+        <button class="persp-btn" id="persp-buy" onclick="dSwitchPersp('buy')">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="9" cy="5.5" r="2" fill="#C8922A"/><line x1="7" y1="5.5" x2="4" y2="2" stroke="#C8922A" stroke-width="0.9" stroke-dasharray="1.5 1.2"/><line x1="7" y1="5.5" x2="3.8" y2="5.5" stroke="#C8922A" stroke-width="1" stroke-dasharray="1.5 1.2"/><line x1="7" y1="5.5" x2="4" y2="9" stroke="#C8922A" stroke-width="0.9" stroke-dasharray="1.5 1.2"/><circle cx="3" cy="2" r="1.5" fill="none" stroke="#C8922A" stroke-width="0.9"/><circle cx="2.8" cy="5.5" r="1.5" fill="none" stroke="#C8922A" stroke-width="0.9"/><circle cx="3" cy="9" r="1.5" fill="none" stroke="#C8922A" stroke-width="0.9"/></svg>
+          <span data-lang="en" class="active">Buy side — retailer / trader / exporter</span>
+          <span data-lang="nl">Vraagkant — retailer / trader / exporteur</span>
+        </button>
+      </div>
+
+      <!-- Sell-side caption + dots -->
+      <div class="demo-caption-row" id="sell-cap-row">
         <div class="demo-step-dots">
           <div class="dsdot on" id="d0"></div><div class="dsdot" id="d1"></div><div class="dsdot" id="d2"></div>
           <div class="dsdot" id="d3"></div><div class="dsdot" id="d4"></div><div class="dsdot" id="d5"></div>
@@ -535,6 +572,16 @@ span[data-lang].active { display: inline; }
         </div>
         <div class="demo-cap" id="dcap">Supply portfolio — empty, ready to upload</div>
         <div id="dpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click active dot to resume</div>
+      </div>
+
+      <!-- Buy-side caption + dots -->
+      <div class="demo-caption-row" id="buy-cap-row" style="display:none">
+        <div class="demo-step-dots">
+          <div class="dsdot on" id="b0"></div><div class="dsdot" id="b1"></div><div class="dsdot" id="b2"></div>
+          <div class="dsdot" id="b3"></div><div class="dsdot" id="b4"></div>
+        </div>
+        <div class="demo-cap" id="bcap">RFQ inbox — incoming request for radishes</div>
+        <div id="bpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click active dot to resume</div>
       </div>
       <div class="demo-browser" id="demo-browser">
         <div class="demo-chrome">
@@ -640,7 +687,131 @@ span[data-lang].active { display: inline; }
 
         <div class="dmouse" id="dmouse"><svg width="13" height="17" viewBox="0 0 14 18"><path d="M1 1l11 6-5 1.5L5 14 1 1z" fill="white" stroke="#444" stroke-width="0.8"/></svg></div>
         <div class="dring" id="dring"></div>
-      </div>
+      </div><!-- /sell demo-browser -->
+
+      <!-- BUY BROWSER -->
+      <div class="demo-browser" id="demo-browser-buy" style="display:none">
+        <div class="demo-chrome">
+          <div class="demo-dots"><div class="demo-dot" style="background:#FF5F57"></div><div class="demo-dot" style="background:#FEBC2E"></div><div class="demo-dot" style="background:#28C840"></div></div>
+          <div class="demo-url" id="buy-demo-url">caravan.trade/inbox</div>
+        </div>
+
+        <!-- db1: RFQ inbox — new RFQ notification -->
+        <div id="db1" class="dscr on">
+          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn da">RFQ Inbox</div><div class="dtn">My Orders</div><div class="dtn">History</div></div></div><div class="dtbst">Market Open · 09:08 UTC</div></div>
+          <div class="dbody">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="dstitle">Incoming RFQs</div><div style="font-size:8px;color:rgba(238,232,220,.32);letter-spacing:.08em">Auto-refresh · 30s</div></div>
+            <div class="drh" style="grid-template-columns:8px 1fr 70px 64px 52px 54px"><div></div><div class="dcl">Product</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Delivery</div><div class="dcl" style="text-align:right">Expires</div><div class="dcl" style="text-align:right">Status</div></div>
+            <div id="db1row1" class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;background:rgba(200,146,42,.06);border-left:2px solid #C8922A"><span class="dsd dsd-l"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · W19 · Class I · DDP</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div class="dcv mn da2" style="text-align:right">14:30</div><div style="text-align:right"><span class="dbg dbg-l">New</span></div></div>
+            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.45"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · W19 · Class I · DDP</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn da2" style="text-align:right">20 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">15:00</div><div style="text-align:right"><span class="dbg dbg-q">Quoted</span></div></div>
+            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.3"><span class="dsd dsd-f"></span><div><div class="dcv">Prei · Herfst</div><div class="dsb">REO Roeselare · W20 · Class I</div></div><div class="dcv mn" style="text-align:right">25,000 kg</div><div class="dcv mn da2" style="text-align:right">26 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">Tmrw</div><div style="text-align:right"><span class="dbg dbg-f">Pending</span></div></div>
+          </div>
+        </div>
+
+        <!-- db2: RFQ detail — reviewing parameters -->
+        <div id="db2" class="dscr">
+          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn da">RFQ Inbox</div><div class="dtn">My Orders</div><div class="dtn">History</div></div></div><div class="dtbst">Market Open · 09:09 UTC</div></div>
+          <div class="dbody">
+            <div class="dstitle">RFQ-2026-0521 · Radijsjes · Ronde Rode</div>
+            <div class="drfqp" style="margin-bottom:10px">
+              <div class="drpt">RFQ parameters</div>
+              <div class="drpg" style="grid-template-columns:repeat(4,1fr)">
+                <div class="drpc"><div class="drpl">Product</div><div class="drpv">Radijsjes</div></div>
+                <div class="drpc"><div class="drpl">Volume</div><div class="drpv da2">12,000 kg</div></div>
+                <div class="drpc"><div class="drpl">Delivery</div><div class="drpv">19 May</div></div>
+                <div class="drpc"><div class="drpl">Ind. price</div><div class="drpv da2">€1.24</div></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-bottom:10px">
+              <div class="drpc"><div class="drpl">Origin</div><div class="drpv" style="font-size:11px">Supplier A · BE</div></div>
+              <div class="drpc"><div class="drpl">Class</div><div class="drpv" style="font-size:11px">Class I</div></div>
+              <div class="drpc"><div class="drpl">Incoterm</div><div class="drpv" style="font-size:11px">DDP</div></div>
+              <div class="drpc"><div class="drpl">Expires</div><div class="drpv da2" style="font-size:11px">14:30 UTC</div></div>
+            </div>
+            <div style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(238,232,220,.3);margin-bottom:7px">Seller profile</div>
+            <div class="drpc" style="display:flex;align-items:center;justify-content:space-between">
+              <div><div style="font-size:11px;color:#EEE8DC">Supplier A</div><div class="dsb">Verified · 38 trades on CARAVAN</div></div>
+              <div style="display:flex;align-items:center;gap:2px"><span class="dstar on" style="font-size:10px">★</span><span class="dstar on" style="font-size:10px">★</span><span class="dstar on" style="font-size:10px">★</span><span class="dstar on" style="font-size:10px">★</span><span class="dstar on" style="font-size:10px">★</span><span class="dnrev">(38)</span></div>
+            </div>
+            <div style="display:flex;justify-content:flex-end;margin-top:10px"><div class="dbtnp" id="db2quotebtn" style="opacity:.4">Submit quote →</div></div>
+          </div>
+        </div>
+
+        <!-- db3: Quote submission form -->
+        <div id="db3" class="dscr">
+          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn da">RFQ Inbox</div><div class="dtn">My Orders</div><div class="dtn">History</div></div></div><div class="dtbst">Market Open · 09:10 UTC</div></div>
+          <div class="dbody">
+            <div class="dstitle">Submit quote — RFQ-2026-0521 · Radijsjes</div>
+            <div class="drfqp" style="margin-bottom:12px">
+              <div class="drpt">Your quote</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px">
+                <div class="drpc">
+                  <div class="drpl">Price per kg</div>
+                  <div class="drpv da2" id="db3price" style="font-size:16px;font-weight:500">—</div>
+                </div>
+                <div class="drpc">
+                  <div class="drpl">Volume</div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-top:2px">
+                    <div id="db3vol-down" style="width:18px;height:18px;background:rgba(238,232,220,.08);border:1px solid rgba(238,232,220,.14);border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:default;font-size:11px;color:rgba(238,232,220,.5);flex-shrink:0;transition:background .15s">−</div>
+                    <div class="drpv" id="db3vol" style="font-size:14px;min-width:64px;text-align:center">12,000 kg</div>
+                    <div id="db3vol-up" style="width:18px;height:18px;background:rgba(238,232,220,.08);border:1px solid rgba(238,232,220,.14);border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:default;font-size:11px;color:rgba(238,232,220,.5);flex-shrink:0;transition:background .15s">+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(238,232,220,.3);margin-bottom:6px">Indicative price range on CARAVAN</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+              <div style="font-size:9px;color:rgba(238,232,220,.35);font-family:var(--mono)">€1.18</div>
+              <div style="flex:1;height:3px;background:rgba(238,232,220,.08);border-radius:2px;position:relative">
+                <div id="db3marker" style="position:absolute;top:-4px;width:3px;height:11px;background:#C8922A;border-radius:2px;left:60%;transition:left .6s ease"></div>
+              </div>
+              <div style="font-size:9px;color:rgba(238,232,220,.35);font-family:var(--mono)">€1.38</div>
+            </div>
+            <div style="font-size:8px;color:rgba(238,232,220,.28);letter-spacing:.05em;margin-bottom:10px" id="db3note">Enter your price. Binding quote — valid until 14:30 UTC.</div>
+            <div style="display:flex;justify-content:flex-end"><div class="dbtnp" id="db3submitbtn" style="opacity:.35">Confirm &amp; send →</div></div>
+          </div>
+        </div>
+
+        <!-- db4: Quote sent — awaiting decision -->
+        <div id="db4" class="dscr">
+          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn">RFQ Inbox</div><div class="dtn da">My Orders</div><div class="dtn">History</div></div></div><div class="dtbst">Market Open · 09:12 UTC</div></div>
+          <div class="dbody">
+            <div class="dstitle">My orders</div>
+            <div class="drh" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><div></div><div class="dcl">Product</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">My quote</div><div class="dcl" style="text-align:right">Expires</div><div class="dcl" style="text-align:right">Status</div></div>
+            <div id="db4row" class="drr dfin" style="grid-template-columns:8px 1fr 70px 62px 54px 54px;background:rgba(200,146,42,.05)"><span class="dsd dsd-q"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · RFQ-2026-0521</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">€1.31</div><div class="dcountdown" id="db4timer" style="font-size:11px;text-align:right">04:52</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div>
+            <div style="padding:9px 0;opacity:.4"><div class="drr" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · RFQ-2026-0509</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.4)">€3.88</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.3)">—</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div></div>
+            <div style="margin-top:8px;padding:8px 10px;background:rgba(238,232,220,.03);border:1px solid rgba(238,232,220,.06);font-size:9px;color:rgba(238,232,220,.32);letter-spacing:.05em">You will be notified immediately when the seller makes a decision.</div>
+          </div>
+        </div>
+
+        <!-- db5: Deal accepted — logged -->
+        <div id="db5" class="dscr">
+          <div class="dtb"><div style="display:flex;align-items:center;gap:10px"><div class="dtbl">CARAVAN</div><div class="dtbn"><div class="dtn">RFQ Inbox</div><div class="dtn">My Orders</div><div class="dtn da">History</div></div></div><div class="dtbst">Market Open · 09:15 UTC</div></div>
+          <div class="dbody" style="position:relative">
+            <div class="dcbox"><div class="dci">✓</div><div class="dct">Your quote was accepted</div><div class="dcs">RFQ-2026-0521 · Radijsjes · Ronde Rode · 19 May</div><div class="dcd">€1.31 / kg · 12,000 kg · Supplier A · DDP</div></div>
+            <div class="dstitle">My deals</div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
+            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.38;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">BelOrta · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">8,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.88</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <!-- Buyer toast -->
+            <div class="dtoast" id="dbtoast">
+              <div class="dtoast-bar"></div>
+              <div class="dtoast-inner">
+                <div class="dtoast-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="2" fill="#0078D4"/><path d="M3 8.5L6.5 12 13 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="dtoast-content">
+                  <div class="dtoast-app">Microsoft Outlook</div>
+                  <div class="dtoast-title">CARAVAN — Quote accepted</div>
+                  <div class="dtoast-body">Radijsjes · €1.31/kg · 12,000 kg · Supplier A · 19 May</div>
+                </div>
+                <div class="dtoast-time">now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dmouse" id="dmouse-buy" style="display:none"><svg width="13" height="17" viewBox="0 0 14 18"><path d="M1 1l11 6-5 1.5L5 14 1 1z" fill="white" stroke="#444" stroke-width="0.8"/></svg></div>
+        <div class="dring" id="dring-buy"></div>
+      </div><!-- /buy demo-browser -->
     </div>
   </header>
 
@@ -693,22 +864,22 @@ span[data-lang].active { display: inline; }
       <span data-lang="nl">Hoe een deal tot stand komt op CARAVAN.</span>
     </h2>
     <p class="sec-lead">
-      <span data-lang="en" class="active">CARAVAN doesn't replace your counterparties — it replaces the chaos in between. Either side can initiate: a producer placing volume, or a buyer searching for supply.</span>
+      <span data-lang="en" class="active">CARAVAN doesn't replace your counterparties — it replaces the chaos in between. Either side can initiate: a grower placing volume, or a buyer searching for supply.</span>
       <span data-lang="nl">CARAVAN vervangt niet je tegenpartijen — het vervangt de chaos ertussen. Beide kanten kunnen initiëren: een producent die volume plaatst, of een koper die aanbod zoekt.</span>
     </p>
 
     <!-- TWO DIAGRAMS -->
     <div class="diagrams-grid">
       <div>
-        <div class="diagram-panel-label"><span data-lang="en" class="active">Producer places volume</span><span data-lang="nl">Producent plaatst volume</span></div>
-        <svg width="100%" viewBox="0 0 400 270" role="img" aria-label="Producer-initiated RFQ">
+        <div class="diagram-panel-label"><span data-lang="en" class="active">Grower places volume</span><span data-lang="nl">Producent plaatst volume</span></div>
+        <svg width="100%" viewBox="0 0 400 270" role="img" aria-label="Grower-initiated RFQ">
           <defs>
             <marker id="arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </marker>
           </defs>
           <rect x="16" y="95" width="100" height="80" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
-          <text x="66" y="127" text-anchor="middle" dominant-baseline="central" style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;fill:#633806">Producer</text>
+          <text x="66" y="127" text-anchor="middle" dominant-baseline="central" style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;fill:#633806">Grower</text>
           <text x="66" y="147" text-anchor="middle" dominant-baseline="central" style="font-family:'DM Mono',monospace;font-size:9px;fill:#854F0B">sends RFQ</text>
           <g id="p-pulse" style="opacity:0">
             <circle cx="66" cy="135" r="14" fill="none" stroke="#BA7517" stroke-width="1.2">
@@ -753,7 +924,7 @@ span[data-lang].active { display: inline; }
           <text id="p-label" x="200" y="252" text-anchor="middle" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;fill:#EEE8DC;opacity:0.4"></text>
         </svg>
         <div class="rfq-caption" id="p-cap">
-          <span data-lang="en" class="active">A producer has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.</span>
+          <span data-lang="en" class="active">A grower has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.</span>
           <span data-lang="nl">Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.</span>
         </div>
       </div>
@@ -783,9 +954,9 @@ span[data-lang].active { display: inline; }
           </g>
           <g id="b-cps" style="opacity:0.22;transition:opacity .35s">
             <rect x="168" y="22" width="100" height="38" rx="6" fill="#111D30" stroke="#EEE8DC" stroke-width="0.4" stroke-opacity="0.3"/>
-            <text x="218" y="41" text-anchor="middle" dominant-baseline="central" style="font-family:'Barlow',sans-serif;font-size:12px;fill:#EEE8DC">Producer A</text>
+            <text x="218" y="41" text-anchor="middle" dominant-baseline="central" style="font-family:'Barlow',sans-serif;font-size:12px;fill:#EEE8DC">Grower A</text>
             <rect x="168" y="72" width="100" height="38" rx="6" fill="#111D30" stroke="#EEE8DC" stroke-width="0.4" stroke-opacity="0.3"/>
-            <text x="218" y="91" text-anchor="middle" dominant-baseline="central" style="font-family:'Barlow',sans-serif;font-size:12px;fill:#EEE8DC">Producer B</text>
+            <text x="218" y="91" text-anchor="middle" dominant-baseline="central" style="font-family:'Barlow',sans-serif;font-size:12px;fill:#EEE8DC">Grower B</text>
             <rect x="168" y="122" width="100" height="38" rx="6" fill="#111D30" stroke="#EEE8DC" stroke-width="0.4" stroke-opacity="0.3"/>
             <text x="218" y="141" text-anchor="middle" dominant-baseline="central" style="font-family:'Barlow',sans-serif;font-size:12px;fill:#EEE8DC">Co-op C</text>
             <rect x="168" y="172" width="100" height="38" rx="6" fill="#111D30" stroke="#EEE8DC" stroke-width="0.4" stroke-opacity="0.3"/>
@@ -911,7 +1082,7 @@ span[data-lang].active { display: inline; }
       <span data-lang="nl">Vroege gesprekken <span class="amb">welkom.</span></span>
     </h2>
     <p class="contact-lead">
-      <span data-lang="en" class="active">We are in active conversation with cooperatives, producers, exporters and buyers across Belgium. If you trade fresh produce on either side, we want to understand how you work today, what creates friction, and what better infrastructure would be worth to your operation.</span>
+      <span data-lang="en" class="active">We are in active conversation with cooperatives, growers, exporters and buyers across Belgium. If you trade fresh produce on either side, we want to understand how you work today, what creates friction, and what better infrastructure would be worth to your operation.</span>
       <span data-lang="nl">We voeren actieve gesprekken met coöperaties, producenten, exporteurs en kopers in heel België.</span>
     </p>
     <a class="contact-mail" href="mailto:info@caravan.trade">
@@ -948,11 +1119,11 @@ span[data-lang].active { display: inline; }
 
 (function(){
   var phases=[
-    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A producer has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.',dur:1800},
+    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A grower has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.',dur:1800},
     {pulse:'0',send:'1',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'The RFQ goes out simultaneously. Product, volume, quality class and delivery week all defined upfront.',capNL:'De RFQ gaat tegelijkertijd naar alle kopers.',dur:2000},
-    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'All buyers respond with a binding price. The producer sees every offer at once.',capNL:'Alle kopers reageren met een bindende prijs.',dur:2200},
+    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'All buyers respond with a binding price. The grower sees every offer at once.',capNL:'Alle kopers reageren met een bindende prijs.',dur:2200},
     {pulse:'0',send:'0.06',resp:'0.2',prices:'0.2',deal:'1',cps:'0.7',label:'Step 3 — Execute and record',capEN:'The best offer is accepted. The deal is confirmed and logged. Both sides have a full record.',capNL:'Het beste aanbod wordt geaccepteerd en geregistreerd.',dur:2400},
-    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A producer has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.',dur:1400},
+    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A grower has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.',dur:1400},
   ];
   var cur=0;
   function tick(){
@@ -977,11 +1148,11 @@ span[data-lang].active { display: inline; }
 
 (function(){
   var phases=[
-    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to producers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:1800},
-    {pulse:'0',send:'1',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'The RFQ goes out simultaneously to producers, cooperatives and exporters.',capNL:'De RFQ gaat tegelijkertijd naar producenten en coöperaties.',dur:2000},
-    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'Producers and cooperatives respond with supply offers. The buyer sees all responses at once.',capNL:'Producenten en coöperaties reageren met aanbiedingen.',dur:2200},
+    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to growers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:1800},
+    {pulse:'0',send:'1',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'The RFQ goes out simultaneously to growers, cooperatives and exporters.',capNL:'De RFQ gaat tegelijkertijd naar producenten en coöperaties.',dur:2000},
+    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'Growers and cooperatives respond with supply offers. The buyer sees all responses at once.',capNL:'Producenten en coöperaties reageren met aanbiedingen.',dur:2200},
     {pulse:'0',send:'0.06',resp:'0.2',prices:'0.2',deal:'1',cps:'0.7',label:'Step 3 — Execute and record',capEN:'The best supply offer is selected. The deal is confirmed and logged. Both sides have a full record.',capNL:'Het beste aanbod wordt geselecteerd en geregistreerd.',dur:2400},
-    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to producers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:1400},
+    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to growers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:1400},
   ];
   var cur=0;
   function tick(){
@@ -1159,7 +1330,204 @@ function dDoS7(){
 
 dBindDots();
 DT(dNext,dacts[0].dur);
+
+window._dRestart=function(){
+  dClearAll();dHideMouse();dpaused=false;
+  dHide(dacts[dcur].s);dcur=0;
+  dShow(dacts[0].s);dDot(0);
+  D('demo-url').textContent=dacts[0].url;
+  D('dcap').textContent=dacts[0].cap;
+  if(dacts[0].go)DT(function(){dacts[0].go();},250);
+  DT(dNext,dacts[0].dur);
+};
 })();
+
+/* ── BUY-SIDE ANIMATION ENGINE ── */
+(function(){
+var bcur=0,btimers=[],bpaused=false;
+function bClear(){btimers.forEach(function(t){clearTimeout(t);clearInterval(t);});btimers=[];}
+function BT(fn,ms){var t=setTimeout(fn,ms);btimers.push(t);return t;}
+function BI(fn,ms){var t=setInterval(fn,ms);btimers.push(t);return t;}
+function BD(id){return document.getElementById(id);}
+function bShow(id){BD(id)&&BD(id).classList.add('on');}
+function bHide(id){BD(id)&&BD(id).classList.remove('on');}
+function bDot(i){for(var j=0;j<5;j++){var d=BD('b'+j);if(d)d.classList.remove('on');}var d2=BD('b'+i);if(d2)d2.classList.add('on');}
+
+var bbrowser=document.getElementById('demo-browser-buy');
+var bdmouse=document.getElementById('dmouse-buy'),bdring=document.getElementById('dring-buy');
+function bPos(el){var br=bbrowser.getBoundingClientRect(),er=el.getBoundingClientRect();return{top:er.top-br.top+er.height/2,left:er.left-br.left+er.width/2};}
+function bMove(el,cb){if(!el||bpaused)return;var p=bPos(el);bdmouse.style.display='';bdmouse.classList.add('show');bdmouse.style.top=(p.top-4)+'px';bdmouse.style.left=(p.left-2)+'px';BT(cb||function(){},650);}
+function bClick(el,cb){if(!el||bpaused)return;var p=bPos(el);bdring.style.top=p.top+'px';bdring.style.left=p.left+'px';bdring.classList.remove('fire');void bdring.offsetWidth;bdring.classList.add('fire');BT(cb||function(){},520);}
+function bHideMouse(){bdmouse.classList.remove('show');}
+
+function bSetPaused(p){
+  bpaused=p;
+  var pi=BD('bpause-indicator');
+  if(p){bClear();bHideMouse();if(pi)pi.style.opacity='1';}
+  else{if(pi)pi.style.opacity='0';bNext();}
+}
+
+function bJumpTo(idx){
+  bClear();bHideMouse();bpaused=true;
+  var pi=BD('bpause-indicator');if(pi)pi.style.opacity='1';
+  bHide(bacts[bcur].s);
+  bcur=idx;
+  bShow(bacts[bcur].s);bDot(bcur);
+  BD('buy-demo-url').textContent=bacts[bcur].url;
+  BD('bcap').textContent=bacts[bcur].cap;
+  if(bacts[bcur].go)BT(function(){bacts[bcur].go();},250);
+}
+
+var bacts=[
+  {s:'db1',url:'caravan.trade/inbox',cap:'RFQ inbox — new request for 12,000 kg of radishes',dur:3000,go:bDoB1},
+  {s:'db2',url:'caravan.trade/rfq/2026-0521',cap:'RFQ detail — reviewing product, volume and seller profile',dur:3500,go:bDoB2},
+  {s:'db3',url:'caravan.trade/rfq/2026-0521/quote',cap:'Submitting quote — adjusting volume, typing price, binding until 14:30',dur:7000,go:bDoB3},
+  {s:'db4',url:'caravan.trade/orders',cap:'Quote sent — waiting for seller decision, countdown running',dur:5000,go:bDoB4},
+  {s:'db5',url:'caravan.trade/history',cap:'Quote accepted — deal confirmed and logged',dur:4200,go:bDoB5},
+];
+
+function bNext(){
+  if(bpaused)return;
+  bClear();bHideMouse();
+  bHide(bacts[bcur].s);
+  bcur=(bcur+1)%bacts.length;
+  bShow(bacts[bcur].s);bDot(bcur);
+  BD('buy-demo-url').textContent=bacts[bcur].url;
+  BD('bcap').textContent=bacts[bcur].cap;
+  if(bacts[bcur].go)BT(function(){if(!bpaused)bacts[bcur].go();},250);
+  BT(bNext,bacts[bcur].dur);
+}
+
+function bDoB1(){
+  // Highlight the new RFQ row briefly, then animate mouse click
+  var row=BD('db1row1');if(!row||bpaused)return;
+  BT(function(){bMove(row,function(){bClick(row);});},1200);
+}
+function bDoB2(){
+  var btn=BD('db2quotebtn');if(!btn||bpaused)return;
+  BT(function(){
+    btn.style.opacity='1';
+    bMove(btn,function(){bClick(btn);});
+  },2000);
+}
+function bDoB3(){
+  var price=BD('db3price'),marker=BD('db3marker'),note=BD('db3note'),sbtn=BD('db3submitbtn');
+  var volEl=BD('db3vol'),volUp=BD('db3vol-up'),volDown=BD('db3vol-down');
+  if(!price||bpaused)return;
+  // Reset state
+  price.textContent='—';if(marker)marker.style.left='60%';
+  if(volEl)volEl.textContent='12,000 kg';
+  if(sbtn)sbtn.style.opacity='.35';
+
+  // Step 1: mouse to volume down, click once → 8,000 kg
+  BT(function(){
+    if(bpaused)return;
+    bMove(volDown,function(){
+      bClick(volDown,function(){
+        if(volEl)volEl.textContent='8,000 kg';
+        if(volDown)volDown.style.background='rgba(200,146,42,.18)';
+        BT(function(){if(volDown)volDown.style.background='rgba(238,232,220,.08)';},300);
+        // Step 2: click up twice → 10,000 → 12,000 kg
+        BT(function(){
+          if(bpaused)return;
+          bMove(volUp,function(){
+            bClick(volUp,function(){
+              if(volEl)volEl.textContent='10,000 kg';
+              if(volUp)volUp.style.background='rgba(200,146,42,.18)';
+              BT(function(){if(volUp)volUp.style.background='rgba(238,232,220,.08)';},300);
+              BT(function(){
+                if(bpaused)return;
+                bClick(volUp,function(){
+                  if(volEl)volEl.textContent='12,000 kg';
+                  if(volUp)volUp.style.background='rgba(200,146,42,.18)';
+                  BT(function(){if(volUp)volUp.style.background='rgba(238,232,220,.08)';},300);
+                  // Step 3: animate price typing
+                  var digits=['€','€1','€1.','€1.2','€1.28','€1.31'];
+                  var positions=['60%','60%','60%','62%','64%','68%'];
+                  digits.forEach(function(d,i){
+                    BT(function(){if(bpaused)return;price.textContent=d;if(marker)marker.style.left=positions[i];},400+i*260);
+                  });
+                  BT(function(){
+                    if(bpaused)return;
+                    if(note)note.textContent='Quote: €1.31/kg · 12,000 kg · Total €15,720 · Binding until 14:30 UTC';
+                    if(sbtn)sbtn.style.opacity='1';
+                    bMove(sbtn,function(){bClick(sbtn);});
+                  },2800);
+                });
+              },700);
+            });
+          });
+        },900);
+      });
+    });
+  },600);
+}
+function bDoB4(){
+  var secs=292;
+  function fmt(s){var m=Math.floor(s/60),r=s%60;return(m<10?'0':'')+m+':'+(r<10?'0':'')+r;}
+  var timer=BD('db4timer');if(timer)timer.textContent=fmt(secs);
+  BI(function(){if(bpaused)return;secs--;if(secs<0)return;if(timer)timer.textContent=fmt(secs);},80);
+}
+function bDoB5(){
+  var t=BD('dbtoast');if(!t)return;
+  BT(function(){t.classList.add('dtoast-show');},700);
+}
+
+// Bind buy-side dots
+for(var j=0;j<5;j++){
+  (function(idx){
+    var dot=BD('b'+idx);if(!dot)return;
+    dot.style.cursor='pointer';
+    dot.addEventListener('click',function(){
+      if(bpaused&&bcur===idx){bSetPaused(false);}else{bJumpTo(idx);}
+    });
+  })(j);
+}
+
+// Expose control to switcher
+window._bStart=function(){
+  bClear();bHideMouse();bpaused=false;
+  bHide(bacts[bcur].s);bcur=0;
+  bShow(bacts[0].s);bDot(0);
+  BD('buy-demo-url').textContent=bacts[0].url;
+  BD('bcap').textContent=bacts[0].cap;
+  if(bacts[0].go)BT(function(){bacts[0].go();},250);
+  BT(bNext,bacts[0].dur);
+};
+window._bStop=function(){bClear();bHideMouse();bpaused=true;bHide(bacts[bcur].s);};
+
+// Don't autostart — switcher controls this
+window._bSetPaused=bSetPaused;
+window._bEngine={acts:bacts,cur:function(){return bcur;},setCur:function(v){bcur=v;}};
+})();
+
+/* ── PERSPECTIVE SWITCHER LOGIC ── */
+window.dSwitchPersp=function(side){
+  var sellBtn=document.getElementById('persp-sell');
+  var buyBtn=document.getElementById('persp-buy');
+  var sellCap=document.getElementById('sell-cap-row');
+  var buyCap=document.getElementById('buy-cap-row');
+  var sellBrowser=document.getElementById('demo-browser');
+  var buyBrowser=document.getElementById('demo-browser-buy');
+
+  if(side==='sell'){
+    sellBtn.classList.add('active');buyBtn.classList.remove('active');
+    sellCap.style.display='';buyCap.style.display='none';
+    buyBrowser.style.display='none';
+    sellBrowser.style.display='';
+    if(window._bStop)_bStop();
+    var pi=document.getElementById('dpause-indicator');
+    if(pi)pi.style.opacity='0';
+    if(window._dRestart)_dRestart();
+  } else {
+    buyBtn.classList.add('active');sellBtn.classList.remove('active');
+    buyCap.style.display='';sellCap.style.display='none';
+    sellBrowser.style.display='none';
+    buyBrowser.style.display='';
+    var dmouse=document.getElementById('dmouse');if(dmouse)dmouse.classList.remove('show');
+    if(window._bStart)_bStart();
+  }
+};
 </script>
 </body>
 </html>
