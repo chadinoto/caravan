@@ -429,7 +429,7 @@ section { padding: 96px 0; border-bottom: 1px solid var(--faint); }
 .name-note { margin-top: 56px; display: flex; gap: 28px; align-items: flex-start; }
 .name-note-rule { flex-shrink: 0; width: 1px; background: var(--amber); opacity: 0.4; align-self: stretch; min-height: 40px; }
 .name-note-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); opacity: 0.6; margin-bottom: 8px; }
-.name-note-text { font-size: 13px; font-weight: 300; color: rgba(238,232,220,.4); line-height: 1.7; max-width: 640px; }
+.name-note-text { font-size: 13px; font-weight: 300; color: rgba(238,232,220,.4); line-height: 1.7; }
 
 /* ── CONTACT ── */
 .contact-section { padding: 96px 0 112px; border-bottom: none; }
@@ -445,7 +445,33 @@ section { padding: 96px 0; border-bottom: 1px solid var(--faint); }
 .contact-mail-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); }
 .contact-mail-addr { font-family: var(--display); font-size: clamp(20px, 2.6vw, 32px); font-weight: 500; color: var(--white); letter-spacing: 0.02em; }
 
+/* ── CONTACT FORM ── */
+.cv-form { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; max-width: 720px; }
+.cv-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cv-form-field { display: flex; flex-direction: column; gap: 7px; }
+.cv-req { color: var(--amber); font-style: normal; }
+.cv-optional { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; color: rgba(238,232,220,.3); font-weight: 300; }
+.cv-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); opacity: 0.7; }
+.cv-input { background: rgba(238,232,220,.04); border: 1px solid rgba(238,232,220,.1); color: var(--white); font-family: var(--body); font-size: 14px; font-weight: 300; padding: 11px 14px; outline: none; transition: border-color .2s; width: 100%; }
+.cv-input::placeholder { color: rgba(238,232,220,.2); }
+.cv-input:focus { border-color: rgba(200,146,42,.5); }
+.cv-select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C8922A' stroke-width='1.2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.cv-select option { background: #111D30; color: var(--white); }
+.cv-textarea { resize: vertical; min-height: 80px; }
+.cv-form-footer { display: flex; align-items: center; gap: 24px; margin-top: 4px; flex-wrap: wrap; }
+.cv-submit { background: var(--amber); color: var(--navy); font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 13px 28px; border: none; cursor: pointer; font-weight: 500; transition: background .18s; flex-shrink: 0; }
+.cv-submit:hover { background: #e0a83a; }
+.cv-form-note { font-family: var(--mono); font-size: 10px; color: rgba(238,232,220,.3); letter-spacing: 0.05em; }
+@media (max-width: 600px) { .cv-form-row { grid-template-columns: 1fr; } .cv-form-footer { flex-direction: column; align-items: flex-start; } }
+
 /* ── FOOTER ── */
+footer { padding: 40px 0 56px; border-top: 1px solid var(--faint); margin-top: 0; }
+.foot-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.foot-logo { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: 0.14em; color: var(--white); }
+.foot-meta { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; }
+.foot-name-note { padding-top: 0; }
+.foot-name-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); opacity: 0.5; display: block; margin-bottom: 10px; }
+.foot-name-text { font-size: 12px; font-weight: 300; color: rgba(238,232,220,.28); line-height: 1.7; max-width: 760px; }
 footer {
   padding: 28px 0 36px; border-top: 1px solid var(--faint);
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
@@ -1090,30 +1116,48 @@ span[data-lang].active { display: inline; }
     </h2>
     <p class="contact-lead">
       <span data-lang="en" class="active">We are in active conversation with cooperatives, growers, exporters and buyers across Belgium. If you trade fresh produce on either side, we want to understand how you work today, what creates friction, and what better infrastructure would be worth to your operation.</span>
-      <span data-lang="nl">We voeren actieve gesprekken met coöperaties, producenten, exporteurs en kopers in heel België.</span>
+      <span data-lang="nl">We voeren actieve gesprekken met coöperaties, producenten, exporteurs en kopers in heel België. Als je verse producten verhandelt, willen we begrijpen hoe je vandaag werkt, waar wrijving bestaat, en wat betere handelsinfrastructuur waard zou zijn voor jouw bedrijf.</span>
     </p>
-    <a class="contact-mail" href="mailto:info@caravan.trade">
-      <span class="contact-mail-label"><span data-lang="en" class="active">Write to us</span><span data-lang="nl">Schrijf ons</span></span>
-      <span class="contact-mail-addr">info@caravan.trade</span>
-    </a>
-    <div class="name-note">
-      <span class="name-note-rule"></span>
-      <div>
-      <div class="name-note-label">On the name</div>
-      <p class="name-note-text">
-        <span data-lang="en" class="active">Before roads, ports or exchanges — there were caravans. Merchants crossing fragmented terrain together: sharing intelligence, pooling trust, reaching markets none could reach alone. One initiator. Multiple counterparties. A coordinated journey from price request to executed deal. The fresh produce trade has always worked this way.</span>
-        <span data-lang="nl">Voor wegen, havens of beurzen waren er karavanen. Handelaars die samen versnipperd terrein doorkruisten: informatie delen, vertrouwen bundelen, markten bereiken die niemand alleen kon bereiken. Één initiator. Meerdere tegenpartijen. De versmarkt heeft altijd zo gewerkt.</span>
-      </p>
+    <form class="cv-form" action="https://formspree.io/f/xzdwdngz" method="POST">
+      <div class="cv-form-row">
+        <div class="cv-form-field">
+          <label class="cv-label" for="cf-name"><span data-lang="en" class="active">Name <span class="cv-req">*</span></span><span data-lang="nl">Naam <span class="cv-req">*</span></span></label>
+          <input class="cv-input" id="cf-name" type="text" name="name" required placeholder="Jan De Smedt">
+        </div>
+        <div class="cv-form-field">
+          <label class="cv-label" for="cf-email"><span data-lang="en" class="active">Email <span class="cv-req">*</span></span><span data-lang="nl">E-mail <span class="cv-req">*</span></span></label>
+          <input class="cv-input" id="cf-email" type="email" name="email" required placeholder="jan@bedrijf.be">
+        </div>
       </div>
-    </div>
+      <div class="cv-form-field">
+        <label class="cv-label" for="cf-msg"><span data-lang="en" class="active">Message</span><span data-lang="nl">Bericht</span><span class="cv-optional"> — optional</span></label>
+        <textarea class="cv-input cv-textarea" id="cf-msg" name="message" rows="3" placeholder="What brings you here?"></textarea>
+      </div>
+      <div class="cv-form-footer">
+        <button class="cv-submit" type="submit">
+          <span data-lang="en" class="active">Request a conversation →</span>
+          <span data-lang="nl">Gesprek aanvragen →</span>
+        </button>
+        <span class="cv-form-note"><span data-lang="en" class="active">No commitment. We'll respond within 2 business days.</span><span data-lang="nl">Vrijblijvend. We antwoorden binnen 2 werkdagen.</span></span>
+      </div>
+    </form>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="foot-logo">CARAVAN</div>
-    <div class="foot-meta">
-      <span data-lang="en" class="active">© 2026 · Fresh Produce Trading Infrastructure · Belgium</span>
-      <span data-lang="nl">© 2026 · Handelsinfrastructuur voor Verse Producten · België</span>
+    <div class="foot-top">
+      <div class="foot-logo">CARAVAN</div>
+      <div class="foot-meta">
+        <span data-lang="en" class="active">© 2026 · Fresh Produce Trading Infrastructure · Belgium</span>
+        <span data-lang="nl">© 2026 · Handelsinfrastructuur voor Verse Producten · België</span>
+      </div>
+    </div>
+    <div class="foot-name-note">
+      <span class="foot-name-label">On the name</span>
+      <p class="foot-name-text">
+        <span data-lang="en" class="active">Before roads, ports or exchanges — there were caravans. Merchants crossing fragmented terrain together: sharing intelligence, pooling trust, reaching markets none could reach alone. One initiator. Multiple counterparties. A coordinated journey from price request to executed deal. The fresh produce trade has always worked this way.</span>
+        <span data-lang="nl">Voor wegen, havens of beurzen waren er karavanen. Handelaars die samen versnipperd terrein doorkruisten: informatie delen, vertrouwen bundelen, markten bereiken die niemand alleen kon bereiken. Één initiator. Meerdere tegenpartijen. De versmarkt heeft altijd zo gewerkt.</span>
+      </p>
     </div>
   </footer>
 
