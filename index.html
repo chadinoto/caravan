@@ -425,6 +425,12 @@ section { padding: 96px 0; border-bottom: 1px solid var(--faint); }
 .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
 .pill { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); border: 1px solid rgba(200,146,42,0.4); padding: 4px 9px; }
 
+/* ── NAME ORIGIN ── */
+.name-note { margin-top: 56px; display: flex; gap: 28px; align-items: flex-start; }
+.name-note-rule { flex-shrink: 0; width: 1px; background: var(--amber); opacity: 0.4; align-self: stretch; min-height: 40px; }
+.name-note-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); opacity: 0.6; margin-bottom: 8px; }
+.name-note-text { font-size: 13px; font-weight: 300; color: rgba(238,232,220,.4); line-height: 1.7; max-width: 640px; }
+
 /* ── CONTACT ── */
 .contact-section { padding: 96px 0 112px; border-bottom: none; }
 .contact-title {
@@ -1071,6 +1077,7 @@ span[data-lang].active { display: inline; }
     </div>
   </section>
 
+
   <!-- ── 04 CONTACT ── -->
   <section class="contact-section" id="contact">
     <div class="sec-label">
@@ -1089,6 +1096,16 @@ span[data-lang].active { display: inline; }
       <span class="contact-mail-label"><span data-lang="en" class="active">Write to us</span><span data-lang="nl">Schrijf ons</span></span>
       <span class="contact-mail-addr">info@caravan.trade</span>
     </a>
+    <div class="name-note">
+      <span class="name-note-rule"></span>
+      <div>
+      <div class="name-note-label">On the name</div>
+      <p class="name-note-text">
+        <span data-lang="en" class="active">Before roads, ports or exchanges — there were caravans. Merchants crossing fragmented terrain together: sharing intelligence, pooling trust, reaching markets none could reach alone. One initiator. Multiple counterparties. A coordinated journey from price request to executed deal. The fresh produce trade has always worked this way.</span>
+        <span data-lang="nl">Voor wegen, havens of beurzen waren er karavanen. Handelaars die samen versnipperd terrein doorkruisten: informatie delen, vertrouwen bundelen, markten bereiken die niemand alleen kon bereiken. Één initiator. Meerdere tegenpartijen. De versmarkt heeft altijd zo gewerkt.</span>
+      </p>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
