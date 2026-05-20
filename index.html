@@ -321,7 +321,7 @@ nav.top {
 .dtoast-title { font-size: 11px; font-weight: 600; color: #fff; margin-bottom: 2px; font-family: Segoe UI,sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dtoast-body { font-size: 10px; color: rgba(255,255,255,.65); line-height: 1.4; font-family: Segoe UI,sans-serif; }
 .dtoast-time { font-size: 9px; color: rgba(255,255,255,.35); white-space: nowrap; flex-shrink: 0; font-family: Segoe UI,sans-serif; }
- position: absolute; pointer-events: none; z-index: 99; transition: top .55s cubic-bezier(.4,0,.2,1), left .55s cubic-bezier(.4,0,.2,1); opacity: 0; }
+.dmouse { position: absolute; pointer-events: none; z-index: 99; transition: top .55s cubic-bezier(.4,0,.2,1), left .55s cubic-bezier(.4,0,.2,1); opacity: 0; }
 .dmouse.show { opacity: 1; }
 .dring { position: absolute; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #C8922A; pointer-events: none; z-index: 100; transform: translate(-50%,-50%) scale(0); opacity: 0; }
 .dring.fire { animation: dcr .45s ease forwards; }
@@ -528,7 +528,7 @@ span[data-lang].active { display: inline; }
       <span data-lang="nl">De digitale handelsroute<br>voor verse producten.</span>
     </h1>
     <div class="hero-sub">
-      <span data-lang="en" class="active">Where supply finally finds its price.</span>
+      <span data-lang="en" class="active">Price discovery for produce that can't wait.</span>
       <span data-lang="nl">Waar aanbod eindelijk zijn prijs vindt.</span>
     </div>
     <p class="hero-lead">
@@ -657,7 +657,7 @@ span[data-lang].active { display: inline; }
             <div class="dstitle">My deals</div>
             <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
             <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
-            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.38;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
           </div>
         </div>
 
@@ -668,7 +668,7 @@ span[data-lang].active { display: inline; }
             <div class="dstitle">My deals</div>
             <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
             <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
-            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.38;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
             <!-- Windows toast notification -->
             <div class="dtoast" id="dtoast">
               <div class="dtoast-bar"></div>
@@ -703,8 +703,8 @@ span[data-lang].active { display: inline; }
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="dstitle">Incoming RFQs</div><div style="font-size:8px;color:rgba(238,232,220,.32);letter-spacing:.08em">Auto-refresh · 30s</div></div>
             <div class="drh" style="grid-template-columns:8px 1fr 70px 64px 52px 54px"><div></div><div class="dcl">Product</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Delivery</div><div class="dcl" style="text-align:right">Expires</div><div class="dcl" style="text-align:right">Status</div></div>
             <div id="db1row1" class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;background:rgba(200,146,42,.06);border-left:2px solid #C8922A"><span class="dsd dsd-l"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · W19 · Class I · DDP</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div class="dcv mn da2" style="text-align:right">14:30</div><div style="text-align:right"><span class="dbg dbg-l">New</span></div></div>
-            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.45"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · W19 · Class I · DDP</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn da2" style="text-align:right">20 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">15:00</div><div style="text-align:right"><span class="dbg dbg-q">Quoted</span></div></div>
-            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.3"><span class="dsd dsd-f"></span><div><div class="dcv">Prei · Herfst</div><div class="dsb">REO Roeselare · W20 · Class I</div></div><div class="dcv mn" style="text-align:right">25,000 kg</div><div class="dcv mn da2" style="text-align:right">26 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">Tmrw</div><div style="text-align:right"><span class="dbg dbg-f">Pending</span></div></div>
+            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.65"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · W19 · Class I · DDP</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn da2" style="text-align:right">20 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">15:00</div><div style="text-align:right"><span class="dbg dbg-q">Quoted</span></div></div>
+            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.5"><span class="dsd dsd-f"></span><div><div class="dcv">Prei · Herfst</div><div class="dsb">REO Roeselare · W20 · Class I</div></div><div class="dcv mn" style="text-align:right">25,000 kg</div><div class="dcv mn da2" style="text-align:right">26 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">Tmrw</div><div style="text-align:right"><span class="dbg dbg-f">Pending</span></div></div>
           </div>
         </div>
 
@@ -779,7 +779,7 @@ span[data-lang].active { display: inline; }
             <div class="dstitle">My orders</div>
             <div class="drh" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><div></div><div class="dcl">Product</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">My quote</div><div class="dcl" style="text-align:right">Expires</div><div class="dcl" style="text-align:right">Status</div></div>
             <div id="db4row" class="drr dfin" style="grid-template-columns:8px 1fr 70px 62px 54px 54px;background:rgba(200,146,42,.05)"><span class="dsd dsd-q"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · RFQ-2026-0521</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">€1.31</div><div class="dcountdown" id="db4timer" style="font-size:11px;text-align:right">04:52</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div>
-            <div style="padding:9px 0;opacity:.4"><div class="drr" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · RFQ-2026-0509</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.4)">€3.88</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.3)">—</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div></div>
+            <div style="padding:9px 0;opacity:.6"><div class="drr" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · RFQ-2026-0509</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.4)">€3.88</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.3)">—</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div></div>
             <div style="margin-top:8px;padding:8px 10px;background:rgba(238,232,220,.03);border:1px solid rgba(238,232,220,.06);font-size:9px;color:rgba(238,232,220,.32);letter-spacing:.05em">You will be notified immediately when the seller makes a decision.</div>
           </div>
         </div>
@@ -792,7 +792,7 @@ span[data-lang].active { display: inline; }
             <div class="dstitle">My deals</div>
             <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
             <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
-            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.38;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">BelOrta · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">8,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.88</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">BelOrta · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">8,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.88</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
             <!-- Buyer toast -->
             <div class="dtoast" id="dbtoast">
               <div class="dtoast-bar"></div>
@@ -822,7 +822,7 @@ span[data-lang].active { display: inline; }
       <span data-lang="nl">01 — Het Probleem</span>
     </div>
     <h2 class="sec-title">
-      <span data-lang="en" class="active">Billions in trade. Still coordinated by phone.</span>
+      <span data-lang="en" class="active">Billions in trade. Still coordinated manually.</span>
       <span data-lang="nl">Miljarden in handel. Nog altijd gecoördineerd via telefoon.</span>
     </h2>
     <p class="prob-framing">
@@ -838,7 +838,7 @@ span[data-lang].active { display: inline; }
       <div class="prob-tile">
         <div class="prob-num">02</div>
         <div class="prob-title"><span data-lang="en" class="active">Relationships are the market</span><span data-lang="nl">Relaties zijn de markt</span></div>
-        <div class="prob-body"><span data-lang="en" class="active">In fresh produce, who you trade with matters as much as what you trade. Trust, reliability and quality track record aren't soft factors; they're how deals get done. CARAVAN keeps the relationship at the centre and puts the negotiation on a proper footing around it.</span><span data-lang="nl">In verse producten telt met wie je handelt even veel als wat je verhandelt. Vertrouwen, betrouwbaarheid en kwaliteitshistorie zijn geen zachte factoren; zo worden deals gesloten.</span></div>
+        <div class="prob-body"><span data-lang="en" class="active">In fresh produce, who you trade with matters as much as what you trade. Trust, reliability and proven quality aren't soft factors; they are the foundation of every deal. CARAVAN keeps relationships at the centre while giving negotiations the structure they deserve.</span><span data-lang="nl">In verse producten telt met wie je handelt even veel als wat je verhandelt. Vertrouwen, betrouwbaarheid en kwaliteitshistorie zijn geen zachte factoren; zo worden deals gesloten.</span></div>
       </div>
       <div class="prob-tile">
         <div class="prob-num">03</div>
@@ -848,7 +848,7 @@ span[data-lang].active { display: inline; }
       <div class="prob-tile">
         <div class="prob-num">04</div>
         <div class="prob-title"><span data-lang="en" class="active">The right counterparty isn't always in your contacts</span><span data-lang="nl">De juiste tegenpartij staat niet altijd in je contacten</span></div>
-        <div class="prob-body"><span data-lang="en" class="active">Your existing network is valuable. But sometimes you need volume you can't source from usual suppliers, or a buyer you haven't worked with before. CARAVAN connects you with other participants who may be exactly what this deal needs.</span><span data-lang="nl">Je bestaande netwerk is waardevol. Maar soms heb je volume nodig dat je niet bij vaste leveranciers kunt vinden, of een koper waarmee je nog niet hebt gewerkt.</span></div>
+        <div class="prob-body"><span data-lang="en" class="active">Existing relationships remain at the core of the trade. But sometimes you need volume beyond your usual suppliers, or a buyer outside your current network. CARAVAN expands your reach while keeping relationships at the centre of the trade.</span><span data-lang="nl">Je bestaande netwerk is waardevol. Maar soms heb je volume nodig dat je niet bij vaste leveranciers kunt vinden, of een koper waarmee je nog niet hebt gewerkt.</span></div>
       </div>
     </div>
   </section>
@@ -1062,7 +1062,7 @@ span[data-lang].active { display: inline; }
       <div class="founder">
         <div class="founder-tag"><span data-lang="en" class="active">Co-founder · Commercial &amp; GTM</span><span data-lang="nl">Medeoprichter · Commercieel &amp; GTM</span></div>
         <div class="founder-name">Gitte Van Hasselt</div>
-        <div class="founder-role"><span data-lang="en" class="active">16+ years building new ventures inside and alongside industry leaders</span><span data-lang="nl">16+ jaar nieuwe ventures bouwen binnen en naast marktleiders</span></div>
+        <div class="founder-role"><span data-lang="en" class="active">17+ years building new ventures inside and alongside industry leaders</span><span data-lang="nl">16+ jaar nieuwe ventures bouwen binnen en naast marktleiders</span></div>
         <p class="founder-bio"><span data-lang="en" class="active">Most recently Executive Director at EY Studio+, leading innovation and venture-building programmes with clients including Vandemoortele, Greenyard and Ardo. Prior roles at AB InBev Global Innovation, VRT Start-up and Philips. From Hoogstraten herself, with deep roots in the Belgian fresh produce community and direct access to the cooperatives and buyers CARAVAN is built for.</span><span data-lang="nl">Meest recent Executive Director bij EY Studio+, met klanten zoals Vandemoortele, Greenyard en Ardo. Eerdere rollen bij AB InBev, VRT Start-up en Philips. Zelf afkomstig uit Hoogstraten.</span></p>
         <div class="pills">
           <span class="pill">EY Studio+</span><span class="pill">Vandemoortele</span><span class="pill">Greenyard</span><span class="pill">Ardo</span><span class="pill">AB InBev</span><span class="pill">Philips</span>
