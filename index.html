@@ -184,10 +184,16 @@ nav.top {
 /* ── ANIMATED DEMO ── */
 .demo-outer { margin-top: 56px; }
 .demo-caption-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
-.demo-step-dots { display: flex; gap: 5px; flex-shrink: 0; }
-.dsdot { width: 5px; height: 5px; border-radius: 50%; background: rgba(238,232,220,.18); transition: background .3s; cursor: pointer; }
-.dsdot:hover { background: rgba(238,232,220,.4); }
-.dsdot.on { background: var(--amber); }
+.demo-step-nav { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.demo-nav-btn {
+  background: rgba(238,232,220,.08); border: 1px solid var(--hairline);
+  color: var(--muted-2); width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 15px; line-height: 1;
+  transition: all .15s; flex-shrink: 0;
+}
+.demo-nav-btn:hover { background: rgba(200,146,42,.15); border-color: rgba(200,146,42,.45); color: var(--amber); }
+.demo-step-count { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .06em; min-width: 32px; text-align: center; }
 .demo-cap { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; }
 .demo-browser { background: #0B1220; border-radius: 10px; overflow: hidden; border: 1px solid var(--hairline); position: relative; box-shadow: 0 32px 72px -20px rgba(0,0,0,.7); height: 520px; display: flex; flex-direction: column; }
 .demo-chrome { background: #1A2A42; padding: 9px 12px; display: flex; align-items: center; gap: 9px; border-bottom: 1px solid rgba(238,232,220,.1); flex-shrink: 0; }
@@ -367,7 +373,7 @@ section { padding: 96px 0; border-bottom: 1px solid var(--faint); }
   text-transform: uppercase; color: var(--amber); margin-bottom: 10px;
   text-align: center; opacity: 0.8;
 }
-.rfq-caption { font-size: 13px; color: var(--muted-2); text-align: center; margin-top: 12px; line-height: 1.6; min-height: 36px; }
+.rfq-caption { font-size: 13px; color: var(--muted-2); text-align: center; margin-top: 12px; line-height: 1.6; height: 44px; display: flex; align-items: center; justify-content: center; }
 @keyframes dashFlow { to { stroke-dashoffset: -18; } }
 .dash { stroke-dasharray: 5 4; animation: dashFlow .5s linear infinite; }
 
@@ -598,25 +604,26 @@ span[data-lang].active { display: inline; }
         </button>
       </div>
 
-      <!-- Sell-side caption + dots -->
+      <!-- Sell-side caption + nav -->
       <div class="demo-caption-row" id="sell-cap-row">
-        <div class="demo-step-dots">
-          <div class="dsdot on" id="d0"></div><div class="dsdot" id="d1"></div><div class="dsdot" id="d2"></div>
-          <div class="dsdot" id="d3"></div><div class="dsdot" id="d4"></div><div class="dsdot" id="d5"></div>
-          <div class="dsdot" id="d6"></div>
+        <div class="demo-step-nav">
+          <button class="demo-nav-btn" id="sell-prev" aria-label="Previous screen">&#8592;</button>
+          <span class="demo-step-count" id="sell-count">1 / 7</span>
+          <button class="demo-nav-btn" id="sell-next" aria-label="Next screen">&#8594;</button>
         </div>
         <div class="demo-cap" id="dcap">Supply portfolio — empty, ready to upload</div>
-        <div id="dpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click active dot to resume</div>
+        <div id="dpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click arrow to resume</div>
       </div>
 
-      <!-- Buy-side caption + dots -->
+      <!-- Buy-side caption + nav -->
       <div class="demo-caption-row" id="buy-cap-row" style="display:none">
-        <div class="demo-step-dots">
-          <div class="dsdot on" id="b0"></div><div class="dsdot" id="b1"></div><div class="dsdot" id="b2"></div>
-          <div class="dsdot" id="b3"></div><div class="dsdot" id="b4"></div>
+        <div class="demo-step-nav">
+          <button class="demo-nav-btn" id="buy-prev" aria-label="Previous screen">&#8592;</button>
+          <span class="demo-step-count" id="buy-count">1 / 5</span>
+          <button class="demo-nav-btn" id="buy-next" aria-label="Next screen">&#8594;</button>
         </div>
         <div class="demo-cap" id="bcap">RFQ inbox — incoming request for radishes</div>
-        <div id="bpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click active dot to resume</div>
+        <div id="bpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click arrow to resume</div>
       </div>
       <div class="demo-browser" id="demo-browser">
         <div class="demo-chrome">
@@ -959,8 +966,8 @@ span[data-lang].active { display: inline; }
           <text id="p-label" x="200" y="252" text-anchor="middle" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;fill:#EEE8DC;opacity:0.4"></text>
         </svg>
         <div class="rfq-caption" id="p-cap">
-          <span data-lang="en" class="active">A grower has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.</span>
-          <span data-lang="nl">Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.</span>
+          <span data-lang="en" class="active">A grower has 18,000 kg of Conference pears to place. They send an RFQ to selected buyers.</span>
+          <span data-lang="nl">Een producent heeft 18.000 kg Conference peren te plaatsen.</span>
         </div>
       </div>
 
@@ -1183,11 +1190,11 @@ span[data-lang].active { display: inline; }
 
 (function(){
   var phases=[
-    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A grower has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.',dur:1800},
-    {pulse:'0',send:'1',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'The RFQ goes out simultaneously. Product, volume, quality class and delivery week all defined upfront.',capNL:'De RFQ gaat tegelijkertijd naar alle kopers.',dur:2000},
-    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'All buyers respond with a binding price. The grower sees every offer at once.',capNL:'Alle kopers reageren met een bindende prijs.',dur:2200},
-    {pulse:'0',send:'0.06',resp:'0.2',prices:'0.2',deal:'1',cps:'0.7',label:'Step 3 — Execute and record',capEN:'The best offer is accepted. The deal is confirmed and logged. Both sides have a full record.',capNL:'Het beste aanbod wordt geaccepteerd en geregistreerd.',dur:2400},
-    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A grower has 18,000 kg of Elsanta strawberries to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Elsanta-aardbeien te plaatsen.',dur:1400},
+    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A grower has 18,000 kg of Conference pears to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Conference peren te plaatsen.',dur:2300},
+    {pulse:'0',send:'1',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'The RFQ goes out simultaneously. Product, volume, quality class and delivery week all defined upfront.',capNL:'De RFQ gaat tegelijkertijd naar alle kopers.',dur:2500},
+    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'All buyers respond with a binding price. The grower sees every offer at once.',capNL:'Alle kopers reageren met een bindende prijs.',dur:2800},
+    {pulse:'0',send:'0.06',resp:'0.2',prices:'0.2',deal:'1',cps:'0.7',label:'Step 3 — Execute and record',capEN:'The best offer is accepted. The deal is confirmed and logged. Both sides have a full record.',capNL:'Het beste aanbod wordt geaccepteerd en geregistreerd.',dur:3000},
+    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A grower has 18,000 kg of Conference pears to place. They send an RFQ to selected buyers.',capNL:'Een producent heeft 18.000 kg Conference peren te plaatsen.',dur:1800},
   ];
   var cur=0;
   function tick(){
@@ -1212,11 +1219,11 @@ span[data-lang].active { display: inline; }
 
 (function(){
   var phases=[
-    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to growers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:1800},
-    {pulse:'0',send:'1',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'The RFQ goes out simultaneously to growers, cooperatives and exporters.',capNL:'De RFQ gaat tegelijkertijd naar producenten en coöperaties.',dur:2000},
-    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'Growers and cooperatives respond with supply offers. The buyer sees all responses at once.',capNL:'Producenten en coöperaties reageren met aanbiedingen.',dur:2200},
-    {pulse:'0',send:'0.06',resp:'0.2',prices:'0.2',deal:'1',cps:'0.7',label:'Step 3 — Execute and record',capEN:'The best supply offer is selected. The deal is confirmed and logged. Both sides have a full record.',capNL:'Het beste aanbod wordt geselecteerd en geregistreerd.',dur:2400},
-    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to growers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:1400},
+    {pulse:'1',send:'0',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to growers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:2300},
+    {pulse:'0',send:'1',resp:'0',prices:'0',deal:'0',cps:'1',label:'Step 1 — Send request',capEN:'The RFQ goes out simultaneously to growers, cooperatives and exporters.',capNL:'De RFQ gaat tegelijkertijd naar producenten en coöperaties.',dur:2500},
+    {pulse:'0',send:'0.1',resp:'1',prices:'1',deal:'0',cps:'1',label:'Step 2 — Collect quotes',capEN:'Growers and cooperatives respond with supply offers. The buyer sees all responses at once.',capNL:'Producenten en coöperaties reageren met aanbiedingen.',dur:2800},
+    {pulse:'0',send:'0.06',resp:'0.2',prices:'0.2',deal:'1',cps:'0.7',label:'Step 3 — Execute and record',capEN:'The best supply offer is selected. The deal is confirmed and logged. Both sides have a full record.',capNL:'Het beste aanbod wordt geselecteerd en geregistreerd.',dur:3000},
+    {pulse:'0',send:'0',resp:'0',prices:'0',deal:'0',cps:'0.22',label:'',capEN:'A buyer needs 40,000 kg of leeks for October. They send an RFQ to growers and cooperatives.',capNL:'Een koper heeft 40.000 kg prei nodig voor oktober.',dur:1800},
   ];
   var cur=0;
   function tick(){
@@ -1248,7 +1255,7 @@ function DI(fn,ms){var t=setInterval(fn,ms);dtimers.push(t);return t;}
 function D(id){return document.getElementById(id);}
 function dShow(id){D(id).classList.add('on');}
 function dHide(id){D(id).classList.remove('on');}
-function dDot(i){for(var j=0;j<7;j++)D('d'+j).classList.remove('on');D('d'+i).classList.add('on');}
+function dDot(i){var c=D('sell-count');if(c)c.textContent=(i+1)+' / '+dacts.length;}
 var dbrowser=D('demo-browser');
 function dPos(el){var br=dbrowser.getBoundingClientRect(),er=el.getBoundingClientRect();return{top:er.top-br.top+er.height/2,left:er.left-br.left+er.width/2};}
 var dmouse=D('dmouse'),dring=D('dring');
@@ -1281,31 +1288,26 @@ function dJumpTo(idx){
   if(dacts[dcur].go)DT(function(){dacts[dcur].go();},250);
 }
 
-function dBindDots(){
-  for(var j=0;j<7;j++){
-    (function(idx){
-      var dot=D('d'+idx);
-      if(!dot)return;
-      dot.style.cursor='pointer';
-      dot.addEventListener('click',function(){
-        if(dpaused && dcur===idx){
-          dSetPaused(false);
-        } else {
-          dJumpTo(idx);
-        }
-      });
-    })(j);
-  }
+function dBindArrows(){
+  var prev=D('sell-prev'),next=D('sell-next');
+  if(prev)prev.addEventListener('click',function(){
+    var idx=(dcur-1+dacts.length)%dacts.length;
+    dJumpTo(idx);
+  });
+  if(next)next.addEventListener('click',function(){
+    var idx=(dcur+1)%dacts.length;
+    if(dpaused&&dcur===idx-1){dSetPaused(false);}else{dJumpTo(idx);}
+  });
 }
 
 var dacts=[
-  {s:'ds1',url:'caravan.trade/supply',cap:'Supply portfolio — empty, ready to upload',dur:2800,go:null},
-  {s:'ds2',url:'caravan.trade/supply',cap:'Uploading supply — 4 lines importing',dur:4800,go:dDoS2},
-  {s:'ds3',url:'caravan.trade/supply',cap:'Supply loaded — click a line to place on the market',dur:2800,go:dDoS3},
-  {s:'ds4',url:'caravan.trade/supply/rfq/new',cap:'Counterparties — your network, new buyers, open demand',dur:8000,go:dDoS4},
-  {s:'ds5',url:'caravan.trade/rfq/2026-0521',cap:'RFQ live — countdown running, quotes arriving one by one',dur:8500,go:dDoS5},
-  {s:'ds6',url:'caravan.trade/history',cap:'Deal confirmed — logged in your audit trail',dur:3000,go:null},
-  {s:'ds7',url:'caravan.trade/history',cap:'Both parties notified — deal confirmation sent by email',dur:4200,go:dDoS7},
+  {s:'ds1',url:'caravan.trade/supply',cap:'Supply portfolio — empty, ready to upload',dur:3500,go:null},
+  {s:'ds2',url:'caravan.trade/supply',cap:'Uploading supply — 4 lines importing',dur:6000,go:dDoS2},
+  {s:'ds3',url:'caravan.trade/supply',cap:'Supply loaded — click a line to place on the market',dur:3500,go:dDoS3},
+  {s:'ds4',url:'caravan.trade/supply/rfq/new',cap:'Counterparties — your network, new buyers, open demand',dur:10000,go:dDoS4},
+  {s:'ds5',url:'caravan.trade/rfq/2026-0521',cap:'RFQ live — countdown running, quotes arriving one by one',dur:10500,go:dDoS5},
+  {s:'ds6',url:'caravan.trade/history',cap:'Deal confirmed — logged in your audit trail',dur:3800,go:null},
+  {s:'ds7',url:'caravan.trade/history',cap:'Both parties notified — deal confirmation sent by email',dur:5300,go:dDoS7},
 ];
 
 function dNext(){
@@ -1392,7 +1394,7 @@ function dDoS7(){
   DT(function(){t.classList.add('dtoast-show');},600);
 }
 
-dBindDots();
+dBindArrows();
 DT(dNext,dacts[0].dur);
 
 window._dRestart=function(){
@@ -1415,7 +1417,7 @@ function BI(fn,ms){var t=setInterval(fn,ms);btimers.push(t);return t;}
 function BD(id){return document.getElementById(id);}
 function bShow(id){BD(id)&&BD(id).classList.add('on');}
 function bHide(id){BD(id)&&BD(id).classList.remove('on');}
-function bDot(i){for(var j=0;j<5;j++){var d=BD('b'+j);if(d)d.classList.remove('on');}var d2=BD('b'+i);if(d2)d2.classList.add('on');}
+function bDot(i){var c=BD('buy-count');if(c)c.textContent=(i+1)+' / '+bacts.length;}
 
 var bbrowser=document.getElementById('demo-browser-buy');
 var bdmouse=document.getElementById('dmouse-buy'),bdring=document.getElementById('dring-buy');
@@ -1443,11 +1445,11 @@ function bJumpTo(idx){
 }
 
 var bacts=[
-  {s:'db1',url:'caravan.trade/inbox',cap:'RFQ inbox — new request for 12,000 kg of radishes',dur:3000,go:bDoB1},
-  {s:'db2',url:'caravan.trade/rfq/2026-0521',cap:'RFQ detail — reviewing product, volume and seller profile',dur:3500,go:bDoB2},
-  {s:'db3',url:'caravan.trade/rfq/2026-0521/quote',cap:'Submitting quote — adjusting volume, typing price, binding until 14:30',dur:7000,go:bDoB3},
-  {s:'db4',url:'caravan.trade/orders',cap:'Quote sent — waiting for seller decision, countdown running',dur:5000,go:bDoB4},
-  {s:'db5',url:'caravan.trade/history',cap:'Quote accepted — deal confirmed and logged',dur:4200,go:bDoB5},
+  {s:'db1',url:'caravan.trade/inbox',cap:'RFQ inbox — new request for 12,000 kg of radishes',dur:3800,go:bDoB1},
+  {s:'db2',url:'caravan.trade/rfq/2026-0521',cap:'RFQ detail — reviewing product, volume and seller profile',dur:4400,go:bDoB2},
+  {s:'db3',url:'caravan.trade/rfq/2026-0521/quote',cap:'Submitting quote — adjusting volume, typing price, binding until 14:30',dur:8800,go:bDoB3},
+  {s:'db4',url:'caravan.trade/orders',cap:'Quote sent — waiting for seller decision, countdown running',dur:6300,go:bDoB4},
+  {s:'db5',url:'caravan.trade/history',cap:'Quote accepted — deal confirmed and logged',dur:5300,go:bDoB5},
 ];
 
 function bNext(){
@@ -1537,16 +1539,16 @@ function bDoB5(){
   BT(function(){t.classList.add('dtoast-show');},700);
 }
 
-// Bind buy-side dots
-for(var j=0;j<5;j++){
-  (function(idx){
-    var dot=BD('b'+idx);if(!dot)return;
-    dot.style.cursor='pointer';
-    dot.addEventListener('click',function(){
-      if(bpaused&&bcur===idx){bSetPaused(false);}else{bJumpTo(idx);}
-    });
-  })(j);
-}
+// Bind buy-side arrows
+(function(){
+  var prev=BD('buy-prev'),next=BD('buy-next');
+  if(prev)prev.addEventListener('click',function(){
+    var idx=(bcur-1+bacts.length)%bacts.length;bJumpTo(idx);
+  });
+  if(next)next.addEventListener('click',function(){
+    var idx=(bcur+1)%bacts.length;bJumpTo(idx);
+  });
+})();
 
 // Expose control to switcher
 window._bStart=function(){
