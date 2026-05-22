@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--
+  CARAVAN — Privacy Notice
+  NOTE: Replace every [bracketed] placeholder with the real legal entity, address and
+  KBO/VAT number before publishing. Have this reviewed by counsel — it is a starting draft.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Notice — CARAVAN</title>
+<meta name="description" content="How CARAVAN collects and processes personal data submitted through this website.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect width='44' height='44' rx='8' fill='%230B1220'/%3E%3Ccircle cx='12' cy='22' r='4' fill='%23C8922A'/%3E%3Ccircle cx='28' cy='12' r='3' fill='none' stroke='%23C8922A' stroke-width='1.5'/%3E%3Ccircle cx='30' cy='22' r='3.5' fill='none' stroke='%23C8922A' stroke-width='1.5'/%3E%3Ccircle cx='28' cy='32' r='3' fill='none' stroke='%23C8922A' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0B1220; --amber: #C8922A; --white: #EEE8DC;
+  --muted: rgba(238,232,220,0.6); --muted-2: rgba(238,232,220,0.75);
+  --faint: rgba(238,232,220,0.08); --hairline: rgba(238,232,220,0.14);
+  --mono: 'DM Mono', ui-monospace, monospace; --display: 'Barlow Condensed', sans-serif; --body: 'Barlow', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--navy); color: var(--white); font-family: var(--body); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: var(--amber); }
+
+nav.top { position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--faint); }
+.nav-inner { max-width: 860px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
+.nav-logo-text { font-family: var(--display); font-size: 20px; font-weight: 800; letter-spacing: 0.14em; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-home { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-2); text-decoration: none; }
+.nav-home:hover { color: var(--amber); }
+.lang-toggle { display: flex; border: 1px solid var(--hairline); }
+.lang-btn { background: transparent; border: none; color: var(--muted); padding: 6px 10px; cursor: pointer; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.15s; }
+.lang-btn.active { background: var(--amber); color: var(--navy); font-weight: 500; }
+.lang-btn:not(.active):hover { color: var(--white); }
+
+.wrap { max-width: 860px; margin: 0 auto; padding: 64px 32px 96px; }
+.eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em; color: var(--amber); text-transform: uppercase; margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
+.eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--amber); }
+h1 { font-family: var(--display); font-size: clamp(36px, 6vw, 60px); font-weight: 800; letter-spacing: 0.01em; line-height: 1.02; margin-bottom: 12px; }
+.updated { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 40px; }
+h2 { font-family: var(--display); font-size: 24px; font-weight: 700; letter-spacing: 0.03em; color: var(--white); margin: 40px 0 12px; }
+p { color: var(--muted-2); margin-bottom: 14px; font-size: 15px; }
+ul { color: var(--muted-2); margin: 0 0 14px 20px; font-size: 15px; }
+li { margin-bottom: 6px; }
+.lead { color: var(--white); font-size: 16px; }
+.callout { border-left: 2px solid var(--amber); padding: 4px 0 4px 18px; margin: 14px 0; color: var(--muted-2); font-size: 14px; }
+
+.lng { display: none; }
+.lng.active { display: block; }
+
+footer { border-top: 1px solid var(--faint); padding: 28px 32px; max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.foot-logo { font-family: var(--display); font-size: 14px; font-weight: 700; letter-spacing: 0.14em; }
+.foot-link { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-2); text-decoration: none; }
+.foot-link:hover { color: var(--amber); }
+
+@media (max-width: 600px) { .nav-home { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="28" height="22" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="9" cy="22" r="5" fill="#C8922A"/><circle cx="9" cy="22" r="3" fill="#0B1220"/><circle cx="9" cy="22" r="1.5" fill="#C8922A"/>
+        <line x1="14" y1="22" x2="25" y2="22" stroke="#C8922A" stroke-width="1" stroke-dasharray="2 2" opacity="0.9"/>
+        <circle cx="26" cy="22" r="4" fill="#0B1220" stroke="#C8922A" stroke-width="1.5"/>
+      </svg>
+      <span class="nav-logo-text">CARAVAN</span>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-home"><span class="lng active" data-lang="en">← Back to home</span><span class="lng" data-lang="nl">← Terug naar home</span></a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn active" data-set-lang="en">EN</button>
+        <button class="lang-btn" data-set-lang="nl">NL</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ENGLISH -->
+  <div class="lng active" data-lang="en">
+    <div class="eyebrow">Privacy</div>
+    <h1>Privacy Notice</h1>
+    <div class="updated">Last updated · 22 May 2026</div>
+
+    <p class="lead">This notice explains what personal data CARAVAN collects through this website, why, and the rights you have. We keep data collection to the minimum needed to respond to you.</p>
+
+    <h2>1. Who we are</h2>
+    <p>CARAVAN [BV] (“CARAVAN”, “we”) is the controller of the personal data described here.</p>
+    <ul>
+      <li>Registered office: [Registered address], Belgium</li>
+      <li>Company / VAT number: BE 0XXX.XXX.XXX</li>
+      <li>Contact: <a href="mailto:contact@caravan.trade">contact@caravan.trade</a></li>
+    </ul>
+
+    <h2>2. What we collect</h2>
+    <p>When you submit the contact form on our website, we collect only:</p>
+    <ul>
+      <li><strong>Name</strong> — so we know who we are talking to;</li>
+      <li><strong>Email address</strong> — so we can reply;</li>
+      <li><strong>Message</strong> (optional) — any context you choose to share.</li>
+    </ul>
+    <p>We do not use advertising or tracking cookies. See section 7 on local storage.</p>
+
+    <h2>3. Why we process it, and our legal basis</h2>
+    <p>We use this data solely to respond to your enquiry and, where relevant, to discuss CARAVAN with you. The legal basis is your <strong>consent</strong> (given when you submit the form) and our <strong>legitimate interest</strong> in responding to people who contact us. We will not use your details for unrelated marketing without asking you first.</p>
+
+    <h2>4. Who else processes it</h2>
+    <p>Form submissions are delivered to us through <strong>Formspree</strong> (Formspree, Inc.), acting as our processor. Your message may be transmitted to and stored on their infrastructure for delivery. See <a href="https://formspree.io/legal/privacy-policy/" rel="noopener" target="_blank">Formspree's privacy policy</a>. We do not sell or share your data with third parties for their own purposes.</p>
+
+    <h2>5. How long we keep it</h2>
+    <p>We keep your enquiry only as long as needed to handle it and any follow-up conversation, and no longer than [24 months] unless an ongoing relationship requires otherwise. You can ask us to delete it sooner at any time.</p>
+
+    <h2>6. Your rights</h2>
+    <p>Under the GDPR you have the right to access, correct, delete, restrict or object to the processing of your data, and to data portability. To exercise any of these, email <a href="mailto:contact@caravan.trade">contact@caravan.trade</a>.</p>
+    <div class="callout">You also have the right to lodge a complaint with the Belgian Data Protection Authority (Gegevensbeschermingsautoriteit / Autorité de protection des données), <a href="https://www.gegevensbeschermingsautoriteit.be" rel="noopener" target="_blank">gegevensbeschermingsautoriteit.be</a>.</div>
+
+    <h2>7. Cookies &amp; local storage</h2>
+    <p>This site does not use tracking or advertising cookies. We store a single value in your browser's local storage — your language preference (EN/NL) — so the site remembers it on your next visit. It contains no personal information and is never sent to a server.</p>
+
+    <h2>8. Changes</h2>
+    <p>We may update this notice as CARAVAN develops. The “last updated” date above always reflects the current version.</p>
+
+    <h2>9. Contact</h2>
+    <p>Questions about your data? Email <a href="mailto:contact@caravan.trade">contact@caravan.trade</a>.</p>
+  </div>
+
+  <!-- NEDERLANDS -->
+  <div class="lng" data-lang="nl">
+    <div class="eyebrow">Privacy</div>
+    <h1>Privacyverklaring</h1>
+    <div class="updated">Laatst bijgewerkt · 22 mei 2026</div>
+
+    <p class="lead">Deze verklaring legt uit welke persoonsgegevens CARAVAN via deze website verzamelt, waarom, en welke rechten je hebt. We verzamelen niet meer dan nodig is om je te antwoorden.</p>
+
+    <h2>1. Wie we zijn</h2>
+    <p>CARAVAN [BV] (“CARAVAN”, “wij”) is de verwerkingsverantwoordelijke voor de hier beschreven persoonsgegevens.</p>
+    <ul>
+      <li>Maatschappelijke zetel: [Maatschappelijke zetel], België</li>
+      <li>Ondernemings- / btw-nummer: BE 0XXX.XXX.XXX</li>
+      <li>Contact: <a href="mailto:contact@caravan.trade">contact@caravan.trade</a></li>
+    </ul>
+
+    <h2>2. Wat we verzamelen</h2>
+    <p>Wanneer je het contactformulier op onze website invult, verzamelen we enkel:</p>
+    <ul>
+      <li><strong>Naam</strong> — zodat we weten met wie we spreken;</li>
+      <li><strong>E-mailadres</strong> — zodat we kunnen antwoorden;</li>
+      <li><strong>Bericht</strong> (optioneel) — context die je zelf kiest te delen.</li>
+    </ul>
+    <p>We gebruiken geen advertentie- of trackingcookies. Zie punt 7 over lokale opslag.</p>
+
+    <h2>3. Waarom we het verwerken, en onze rechtsgrond</h2>
+    <p>We gebruiken deze gegevens uitsluitend om je vraag te beantwoorden en, waar relevant, om CARAVAN met je te bespreken. De rechtsgrond is je <strong>toestemming</strong> (gegeven bij het verzenden van het formulier) en ons <strong>gerechtvaardigd belang</strong> om te reageren op wie ons contacteert. We gebruiken je gegevens niet voor ongerelateerde marketing zonder je dat eerst te vragen.</p>
+
+    <h2>4. Wie het nog verwerkt</h2>
+    <p>Formulierinzendingen bereiken ons via <strong>Formspree</strong> (Formspree, Inc.), dat optreedt als verwerker. Je bericht kan via hun infrastructuur worden doorgestuurd en bewaard om afgeleverd te worden. Zie het <a href="https://formspree.io/legal/privacy-policy/" rel="noopener" target="_blank">privacybeleid van Formspree</a>. We verkopen of delen je gegevens niet met derden voor hun eigen doeleinden.</p>
+
+    <h2>5. Hoe lang we het bewaren</h2>
+    <p>We bewaren je vraag enkel zolang nodig om ze en eventuele opvolging te behandelen, en niet langer dan [24 maanden] tenzij een lopende relatie iets anders vereist. Je kan ons altijd vragen om ze eerder te wissen.</p>
+
+    <h2>6. Je rechten</h2>
+    <p>Onder de AVG/GDPR heb je het recht op inzage, correctie, verwijdering, beperking of bezwaar tegen de verwerking van je gegevens, en op gegevensoverdraagbaarheid. Mail <a href="mailto:contact@caravan.trade">contact@caravan.trade</a> om een van deze uit te oefenen.</p>
+    <div class="callout">Je hebt ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit, <a href="https://www.gegevensbeschermingsautoriteit.be" rel="noopener" target="_blank">gegevensbeschermingsautoriteit.be</a>.</div>
+
+    <h2>7. Cookies &amp; lokale opslag</h2>
+    <p>Deze site gebruikt geen tracking- of advertentiecookies. We bewaren één waarde in de lokale opslag van je browser — je taalvoorkeur (EN/NL) — zodat de site die onthoudt bij je volgende bezoek. Ze bevat geen persoonsgegevens en wordt nooit naar een server gestuurd.</p>
+
+    <h2>8. Wijzigingen</h2>
+    <p>We kunnen deze verklaring aanpassen naarmate CARAVAN evolueert. De datum “laatst bijgewerkt” hierboven verwijst altijd naar de huidige versie.</p>
+
+    <h2>9. Contact</h2>
+    <p>Vragen over je gegevens? Mail <a href="mailto:contact@caravan.trade">contact@caravan.trade</a>.</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="foot-logo">CARAVAN</div>
+  <a href="index.html" class="foot-link"><span class="lng active" data-lang="en">Back to home</span><span class="lng" data-lang="nl">Terug naar home</span></a>
+</footer>
+
+<script>
+(function(){
+  var stored=(function(){try{return localStorage.getItem('cvlang');}catch(e){return null;}})();
+  var lang=(stored==='nl'||stored==='en')?stored:'en';
+  function setLang(l){
+    lang=l;
+    document.documentElement.lang=l;
+    document.querySelectorAll('.lng').forEach(function(el){el.classList.toggle('active',el.dataset.lang===l);});
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.setLang===l);});
+    try{localStorage.setItem('cvlang',l);}catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.setLang);});});
+  setLang(lang);
+})();
+</script>
+</body>
+</html>
