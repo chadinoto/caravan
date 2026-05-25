@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-25T23:10:00Z",
+  "title": "Design System: CARAVAN",
+  "extensions": {
+    "colorMeta": {
+      "caravan-amber": {
+        "role": "primary",
+        "displayName": "Caravan Amber",
+        "canonical": "oklch(0.67 0.12 75)",
+        "tonalRamp": ["oklch(0.20 0.05 75)", "oklch(0.30 0.08 75)", "oklch(0.40 0.10 75)", "oklch(0.52 0.12 75)", "oklch(0.62 0.13 75)", "oklch(0.72 0.12 75)", "oklch(0.84 0.08 75)", "oklch(0.94 0.03 75)"]
+      },
+      "amber-bright": {
+        "role": "primary",
+        "displayName": "Amber Bright",
+        "canonical": "oklch(0.74 0.12 78)"
+      },
+      "midnight-navy": {
+        "role": "neutral",
+        "displayName": "Midnight Navy",
+        "canonical": "oklch(0.18 0.025 255)",
+        "tonalRamp": ["oklch(0.16 0.02 255)", "oklch(0.24 0.025 255)", "oklch(0.33 0.03 255)", "oklch(0.43 0.035 255)", "oklch(0.54 0.035 255)", "oklch(0.66 0.03 255)", "oklch(0.80 0.02 255)", "oklch(0.93 0.01 255)"]
+      },
+      "navy-raised": {
+        "role": "neutral",
+        "displayName": "Navy Raised",
+        "canonical": "oklch(0.25 0.03 255)"
+      },
+      "navy-overlay": {
+        "role": "neutral",
+        "displayName": "Navy Overlay",
+        "canonical": "oklch(0.31 0.035 255)"
+      },
+      "trade-cream": {
+        "role": "neutral",
+        "displayName": "Trade Cream",
+        "canonical": "oklch(0.93 0.012 85)",
+        "tonalRamp": ["oklch(0.25 0.01 85)", "oklch(0.38 0.012 85)", "oklch(0.50 0.014 85)", "oklch(0.62 0.015 85)", "oklch(0.74 0.015 85)", "oklch(0.84 0.013 85)", "oklch(0.91 0.012 85)", "oklch(0.96 0.008 85)"]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Text Muted",
+        "canonical": "Trade Cream at 0.6 alpha over Midnight Navy"
+      },
+      "text-muted-strong": {
+        "role": "neutral",
+        "displayName": "Text Muted Strong",
+        "canonical": "Trade Cream at 0.75 alpha over Midnight Navy"
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "Trade Cream at 0.14 alpha; borders and grid-gap dividers"
+      },
+      "faint": {
+        "role": "neutral",
+        "displayName": "Faint",
+        "canonical": "Trade Cream at 0.08 alpha; the lightest separators"
+      },
+      "deal-green": {
+        "role": "secondary",
+        "displayName": "Deal Green",
+        "canonical": "oklch(0.46 0.09 165)",
+        "tonalRamp": ["oklch(0.20 0.04 165)", "oklch(0.28 0.06 165)", "oklch(0.37 0.08 165)", "oklch(0.46 0.09 165)", "oklch(0.56 0.09 165)", "oklch(0.67 0.08 165)", "oklch(0.80 0.05 165)", "oklch(0.92 0.02 165)"]
+      },
+      "deal-green-wash": {
+        "role": "secondary",
+        "displayName": "Deal Green Wash",
+        "canonical": "oklch(0.95 0.03 165); pale fill behind completed-deal nodes"
+      },
+      "status-live": {
+        "role": "tertiary",
+        "displayName": "Status Live",
+        "canonical": "oklch(0.82 0.19 145); available supply, new RFQ"
+      },
+      "status-logged": {
+        "role": "tertiary",
+        "displayName": "Status Logged",
+        "canonical": "oklch(0.58 0.11 165); recorded deal price"
+      },
+      "status-demand": {
+        "role": "tertiary",
+        "displayName": "Status Demand",
+        "canonical": "oklch(0.62 0.14 250); open-demand counterparties"
+      },
+      "alert-red": {
+        "role": "tertiary",
+        "displayName": "Alert Red",
+        "canonical": "oklch(0.60 0.19 25); sub-30s urgency and form errors only"
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero and contact headlines. Barlow Condensed 800, fluid to 80-88px, tight line-height. One per fold." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles. Barlow Condensed 800, fluid to 68px." },
+      "title": { "displayName": "Title", "purpose": "Problem tiles, USP rows, founder names. Barlow Condensed 700-800, 26-34px." },
+      "body": { "displayName": "Body", "purpose": "All prose. Barlow 300, line-height 1.65, measure capped 65-75ch." },
+      "label": { "displayName": "Label / Kicker", "purpose": "DM Mono uppercase, tracked 0.15-0.3em. Eyebrows, nav, meta, pills, table headers, button text." }
+    },
+    "shadows": [
+      { "name": "floating-panel", "value": "0 32px 72px -20px rgba(0,0,0,0.7)", "purpose": "The animated RFQ demo browser only. Lifts the product mock off the navy ground." },
+      { "name": "toast", "value": "0 8px 24px rgba(0,0,0,0.5)", "purpose": "The Outlook-style notification that slides in inside the demo." },
+      { "name": "nav-backdrop", "value": "backdrop-filter: blur(16px) over #0B1220EB", "purpose": "Functional, not decorative. Keeps content legible under the sticky nav. The only blur in the system." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "The system easing (ease-out-quint). All state transitions and entrances. No bounce, no elastic." },
+      { "name": "press-feedback", "value": "transform: scale(0.97) on :active", "purpose": "Tactile press on every interactive control." },
+      { "name": "entrance-stagger", "value": "fadeUp (translateY 12px to 0) staggered 0.6-0.8s, 0.08-0.40s delays", "purpose": "Hero entrance: eyebrow, title, subhead, lead, CTA, then demo panel." },
+      { "name": "reduced-motion", "value": "all animation/transition collapsed to 0.001ms; demos render static and paused", "purpose": "Full prefers-reduced-motion support is mandatory." }
+    ],
+    "breakpoints": [
+      { "name": "main", "value": "860px", "purpose": "Nav collapses to burger, grids stack to one column, section padding drops to 72px, gutters to 20px." },
+      { "name": "form", "value": "600px", "purpose": "Contact form row collapses to one column, footer actions stack." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main call to action. Amber fill, navy text, mono uppercase, with an arrow that slides on hover.",
+      "html": "<div style=\"background:#0B1220;padding:24px\"><button class=\"ds-btn-primary\">Request a conversation <span class=\"ds-arr\">→</span></button></div>",
+      "css": ".ds-btn-primary{background:#C8922A;color:#0B1220;font-family:'DM Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;padding:14px 24px;border:1px solid transparent;display:inline-flex;align-items:center;gap:10px;cursor:pointer;transition:background-color .18s ease,transform .14s cubic-bezier(.23,1,.32,1);} .ds-btn-primary .ds-arr{transition:transform .18s;} .ds-btn-primary:hover{background:#E0A83A;} .ds-btn-primary:hover .ds-arr{transform:translateX(3px);} .ds-btn-primary:active{transform:scale(.97);} .ds-btn-primary:focus-visible{outline:2px solid #E0A83A;outline-offset:3px;}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Transparent with a hairline border that shifts to amber on hover.",
+      "html": "<div style=\"background:#0B1220;padding:24px\"><button class=\"ds-btn-ghost\">See how it works</button></div>",
+      "css": ".ds-btn-ghost{background:transparent;color:#EEE8DC;border:1px solid rgba(238,232,220,.14);font-family:'DM Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;padding:14px 24px;cursor:pointer;transition:border-color .18s ease,color .18s ease,transform .14s cubic-bezier(.23,1,.32,1);} .ds-btn-ghost:hover{border-color:#C8922A;color:#C8922A;} .ds-btn-ghost:active{transform:scale(.97);} .ds-btn-ghost:focus-visible{outline:2px solid #E0A83A;outline-offset:3px;}"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Text/email input. Cream-tinted fill, hairline border, square; border warms to amber on focus, plus the system focus ring.",
+      "html": "<div style=\"background:#0B1220;padding:24px\"><input class=\"ds-input\" type=\"text\" placeholder=\"jan@bedrijf.be\"></div>",
+      "css": ".ds-input{background:rgba(238,232,220,.04);border:1px solid rgba(238,232,220,.1);color:#EEE8DC;font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;padding:11px 14px;outline:none;width:260px;transition:border-color .2s;} .ds-input::placeholder{color:rgba(238,232,220,.42);} .ds-input:focus{border-color:rgba(200,146,42,.5);} .ds-input:focus-visible{outline:2px solid #E0A83A;outline-offset:0;}"
+    },
+    {
+      "name": "Credential Pill",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "Founder credential tag. Mono uppercase, amber text, hairline-amber border, no fill, square.",
+      "html": "<div style=\"background:#0B1220;padding:24px;display:flex;gap:6px\"><span class=\"ds-pill\">J.P. Morgan</span><span class=\"ds-pill\">Cargill</span><span class=\"ds-pill\">KBC AM</span></div>",
+      "css": ".ds-pill{font-family:'DM Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#C8922A;border:1px solid rgba(200,146,42,.4);padding:4px 9px;display:inline-block;}"
+    },
+    {
+      "name": "Segmented Toggle",
+      "kind": "custom",
+      "refersTo": "toggle-segment",
+      "description": "The sell-side / buy-side perspective switcher. Segmented control; active segment is an amber tint with amber text. Uses aria-pressed.",
+      "html": "<div style=\"background:#0B1220;padding:24px\"><div class=\"ds-toggle\"><button class=\"ds-toggle-seg ds-active\" aria-pressed=\"true\">Sell side</button><button class=\"ds-toggle-seg\" aria-pressed=\"false\">Buy side</button></div></div>",
+      "css": ".ds-toggle{display:inline-flex;border:1px solid rgba(238,232,220,.14);background:#111D30;border-radius:4px;overflow:hidden;} .ds-toggle-seg{font-family:'DM Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;padding:8px 18px;background:transparent;border:none;cursor:pointer;color:rgba(238,232,220,.6);transition:color .15s,background .15s,transform .14s cubic-bezier(.23,1,.32,1);} .ds-toggle-seg+.ds-toggle-seg{border-left:1px solid rgba(238,232,220,.14);} .ds-toggle-seg.ds-active{background:rgba(200,146,42,.1);color:#C8922A;} .ds-toggle-seg:hover:not(.ds-active){color:#EEE8DC;background:rgba(238,232,220,.08);} .ds-toggle-seg:active{transform:scale(.97);} .ds-toggle-seg:focus-visible{outline:2px solid #E0A83A;outline-offset:3px;}"
+    },
+    {
+      "name": "USP Row",
+      "kind": "card",
+      "refersTo": "usp-row",
+      "description": "Benefit row. Navy-raised surface, hairline border, small radius, warm cream icon chip; steps to navy-overlay on hover.",
+      "html": "<div style=\"background:#0B1220;padding:24px\"><div class=\"ds-usp-row\"><div class=\"ds-usp-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z\"/></svg></div><div><div class=\"ds-usp-title\">Trade while you sleep</div><div class=\"ds-usp-copy\">Set your price range, volume and counterparty preferences once. CARAVAN flags matching RFQs automatically.</div></div></div></div>",
+      "css": ".ds-usp-row{background:#111D30;border:1px solid rgba(238,232,220,.14);border-radius:4px;padding:24px 28px;display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:center;transition:background .15s;max-width:560px;} .ds-usp-row:hover{background:#1A2A42;} .ds-usp-icon{width:44px;height:44px;background:#FAEEDA;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;} .ds-usp-icon svg{width:22px;height:22px;color:#854F0B;} .ds-usp-title{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;letter-spacing:0.04em;color:#EEE8DC;line-height:1.1;margin-bottom:6px;} .ds-usp-copy{font-family:'Barlow',sans-serif;font-size:13px;font-weight:300;color:rgba(238,232,220,.75);line-height:1.6;}"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "Blotter state vocabulary. Tiny mono uppercase, tinted fill plus matching hairline border, color-keyed to the status palette.",
+      "html": "<div style=\"background:#0B1220;padding:24px;display:flex;gap:8px\"><span class=\"ds-badge ds-badge-live\">Available</span><span class=\"ds-badge ds-badge-q\">Quoted</span><span class=\"ds-badge ds-badge-g\">Logged</span></div>",
+      "css": ".ds-badge{font-family:'DM Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;padding:3px 8px;display:inline-block;border:1px solid transparent;} .ds-badge-live{background:rgba(74,222,128,.1);color:#4ADE80;border-color:rgba(74,222,128,.3);} .ds-badge-q{background:rgba(200,146,42,.1);color:#C8922A;border-color:rgba(200,146,42,.3);} .ds-badge-g{background:rgba(29,158,117,.1);color:#1D9E75;border-color:rgba(29,158,117,.28);}"
+    },
+    {
+      "name": "Section Kicker",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The signature label: DM Mono uppercase amber, tracked 0.3em, prefixed by a 28px amber rule. Marks every section and the hero eyebrow.",
+      "html": "<div style=\"background:#0B1220;padding:24px\"><div class=\"ds-kicker\">02 — The Protocol</div></div>",
+      "css": ".ds-kicker{font-family:'DM Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.3em;color:#C8922A;text-transform:uppercase;display:flex;align-items:center;gap:16px;} .ds-kicker::before{content:'';width:28px;height:1px;background:#C8922A;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Digital Trade Route",
+    "overview": "CARAVAN is amber waypoints on a navy expanse. The brand's own origin story is the design brief: before roads, ports or exchanges there were caravans, merchants crossing fragmented terrain together. The interface is that route made legible: a dark, lantern-lit field carries warm signal points that mark where a deal is forming. The voice is precise, warm, and institutional. Quant-grade rigor shows up as sharp 0px corners, 1px hairline dividers, and monospace tracked labels; the warmth comes from cream text instead of stark white, gold instead of clinical green, and a night canvas that reads considered rather than cold. It explicitly rejects cold bank-fintech navy-and-gold, sterile SaaS card grids, leafy agri-tech green, and startup-purple gradients.",
+    "keyCharacteristics": [
+      "Dark, warm canvas: Midnight Navy ground, Trade Cream type, never pure black or white.",
+      "One committed accent: Caravan Amber carries identity, signal, and call-to-action.",
+      "Square by default: 0px corners, 1px hairlines, tonal navy layering instead of shadows.",
+      "Monospace tracked labels (DM Mono, uppercase, 0.2em+) prefixed by a 28px amber rule.",
+      "Condensed display type (Barlow Condensed 800) at large fluid sizes for headline drama.",
+      "Motion is purposeful and reversible: staggered entrance, press feedback, full reduced-motion support."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Caravan Amber is the only accent. It may appear often, but it is never joined by a second decorative hue. Green and the status colors are outcomes and states, not accents.", "section": "colors" },
+      { "name": "The Warm Neutral Rule", "body": "Pure #000 and #fff are forbidden. The ground is Midnight Navy, the light is Trade Cream, and every grey is cream at reduced alpha.", "section": "colors" },
+      { "name": "The Green-Means-Done Rule", "body": "Green is reserved for a confirmed, logged, or accepted trade. Never use it for navigation, emphasis, or general success chrome.", "section": "colors" },
+      { "name": "The Tracked Kicker Rule", "body": "Section and hero kickers are DM Mono, uppercase, tracked 0.3em, in Caravan Amber, and prefixed by a 28px x 1px amber rule via ::before.", "section": "typography" },
+      { "name": "The Condensed-Display Rule", "body": "Large headings are always Barlow Condensed at weight 800 with tight line-height under 1.02. Steps stay at a 1.25+ ratio.", "section": "typography" },
+      { "name": "The Light-Body Rule", "body": "Body copy is weight 300 on the dark ground, line-height 1.65, capped measure. Fix legibility with contrast and measure, not heavier weight.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Page surfaces are flat. Depth comes from the three-step navy tonal ramp and 1px hairlines. Shadow is reserved for elements that are literally floating.", "section": "elevation" },
+      { "name": "The Hairline Grid Rule", "body": "Dividers are drawn by 1px gaps over a hairline background, with each tile painted in the ground color, not by borders on each child.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Caravan Amber (#C8922A) as the only accent. Promote to Amber Bright (#E0A83A) for hover, never for a new role.",
+      "Do build depth with the three-step navy ramp and 1px hairlines. Draw dividers with gap: 1px over a hairline background.",
+      "Do use sharp 0px corners on buttons, inputs, tiles, and pills. Reserve the small 4px to 10px radii for USP rows and the demo panel only.",
+      "Do prefix section and hero kickers with the 28px amber rule and set them in DM Mono uppercase, tracked 0.3em.",
+      "Do reserve green for a confirmed or logged deal, and red only for sub-30-second urgency and form errors.",
+      "Do keep the 2px Amber Bright :focus-visible ring on every interactive element, and keep all motion behind prefers-reduced-motion.",
+      "Do cap body measure at 65 to 75ch and keep body weight at 300 on the dark ground."
+    ],
+    "donts": [
+      "Don't drift into cold bank-fintech navy-and-gold, sterile SaaS card grids, or leafy agri-tech green. Green is an outcome, not a brand color.",
+      "Don't introduce startup-purple gradients, gradient text (background-clip: text), or decorative glassmorphism. The only blur is the nav backdrop.",
+      "Don't use #000 or #fff. Ground is Midnight Navy, light is Trade Cream, greys are cream at reduced alpha.",
+      "Don't put drop shadows on resting cards. Shadow belongs only to elements that are literally floating.",
+      "Don't use a colored border-left or border-right over 1px as a stripe accent on page chrome.",
+      "Don't soften the geometry with rounded cards or set large headings in a non-condensed face.",
+      "Don't scatter mono tracked labels as generic decoration. The amber-ruled kicker is a deliberate, single system."
+    ]
+  }
+}
