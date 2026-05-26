@@ -1,0 +1,2 @@
+- [ ] `/impeccable teach` --> om product.md aan te maken
+- [ ] /redesign-existing project --> om design te verbeteren

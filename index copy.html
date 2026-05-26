@@ -181,24 +181,6 @@ nav.top {
 }
 .demo-step-count { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .06em; min-width: 32px; text-align: center; }
 .demo-cap { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; }
-/* Demo: stage rail — Request · Collect · Execute, current highlighted (mirrors the Protocol section) */
-.demo-stages { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
-.demo-stage { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); transition: color .3s var(--ease-out); }
-.demo-stage b { font-weight: 400; color: rgba(238,232,220,.28); transition: color .3s var(--ease-out); }
-.demo-stage.done, .demo-stage.done b { color: var(--muted-2); }
-.demo-stage.on, .demo-stage.on b { color: var(--amber); }
-.demo-stage-sep { width: 18px; height: 1px; background: var(--hairline); flex-shrink: 0; }
-/* Demo: explanation — full-colour produce thumbnail + plain-language title/sentence + step controls */
-.demo-explain { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 20px; margin-bottom: 14px; }
-.demo-explain-text { flex: 1 1 260px; min-width: 0; }
-/* Per-row produce thumbnail — quality reference for the line on offer; kept full-colour on purpose */
-.dpic { width: 24px; height: 24px; border-radius: 3px; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(238,232,220,.12); background: var(--navy-2); }
-.dpic-radish { object-position: center 64%; }
-.dpic-leek { object-position: center 28%; }
-.demo-cap-title { font-family: var(--display); font-size: 21px; font-weight: 700; letter-spacing: .02em; line-height: 1.12; color: var(--white); }
-.demo-cap-sentence { font-size: 13.5px; font-weight: 300; color: var(--muted-2); line-height: 1.5; margin-top: 4px; max-width: 62ch; text-wrap: pretty; }
-.demo-pause { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-left: 6px; white-space: nowrap; }
-@media (max-width: 860px) { .demo-cap-title { font-size: 19px; } }
 .demo-browser { background: #0B1220; border-radius: 10px; overflow: hidden; border: 1px solid var(--hairline); position: relative; box-shadow: 0 32px 72px -20px rgba(0,0,0,.7); height: 520px; display: flex; flex-direction: column; }
 .demo-chrome { background: #1A2A42; padding: 9px 12px; display: flex; align-items: center; gap: 9px; border-bottom: 1px solid rgba(238,232,220,.1); flex-shrink: 0; }
 .demo-dots { display: flex; gap: 5px; }
@@ -391,13 +373,7 @@ section { padding: 96px 0; border-bottom: 1px solid var(--faint); }
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 1px; background: var(--hairline); border: 1px solid var(--hairline);
 }
-.founder { background: var(--navy-2); padding: 40px 36px; display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: stretch; }
-.founder-body { display: flex; flex-direction: column; min-width: 0; }
-/* Square portraits, palette-toned in CSS so two photos from any source read as one consistent set.
-   Navy-luminosity keeps them inside the system and leaves amber reserved for the accent. */
-.founder-photo { width: 140px; height: 140px; align-self: start; background: var(--navy-3); overflow: hidden; position: relative; }
-.founder-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.06) brightness(1.04); mix-blend-mode: luminosity; transition: filter .35s var(--ease-out), mix-blend-mode .35s; }
-.founder-photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--hairline); background: radial-gradient(120% 120% at 50% 0%, transparent 58%, rgba(11,18,32,.4)); pointer-events: none; }
+.founder { background: var(--navy-2); padding: 40px 36px; display: flex; flex-direction: column; }
 .founder-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
 .founder-name { font-family: var(--display); font-size: 34px; font-weight: 800; letter-spacing: 0.03em; color: var(--white); margin-bottom: 4px; }
 .founder-role { font-size: 13px; color: var(--muted-2); margin-bottom: 20px; font-style: italic; }
@@ -436,7 +412,7 @@ section { padding: 96px 0; border-bottom: 1px solid var(--faint); }
 
 /* ── FOOTER ── */
 footer { padding: 40px 0 56px; border-top: 1px solid var(--faint); margin-top: 0; }
-.foot-top { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 30px; }
+.foot-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .foot-logo { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: 0.14em; color: var(--white); }
 .foot-meta { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; }
 .foot-name-note { padding-top: 0; }
@@ -473,8 +449,6 @@ span[data-lang].active { display: inline; }
   .page, .nav-inner { padding-left: 20px; padding-right: 20px; }
   .hero { padding: 56px 0 64px; }
   .prob-grid, .founders-grid { grid-template-columns: 1fr; }
-  .founder { grid-template-columns: 1fr; gap: 20px; }
-  .founder-photo { width: 116px; height: 116px; }
   .diagrams-grid { grid-template-columns: 1fr; }
   .diagrams-divider { flex-direction: row; padding-top: 0; padding: 12px 0; }
   .diagrams-divider-line { width: 50px; height: 1px; }
@@ -513,8 +487,6 @@ span[data-lang].active { display: inline; }
   .usp-row:hover { background: var(--navy-3); }
   .cv-submit:hover { background: var(--amber-l); }
   .nav-burger:hover { border-color: var(--amber); color: var(--amber); }
-  /* reward interaction — ease the portrait toward its natural colour on hover */
-  .founder-photo:hover img { filter: grayscale(0) contrast(1) brightness(1); mix-blend-mode: normal; }
 }
 
 /* ── KEYBOARD FOCUS ── branded, consistent ring for keyboard users (mouse clicks stay clean) */
@@ -531,34 +503,14 @@ span[data-lang].active { display: inline; }
     scroll-behavior: auto !important;
   }
 }
-
-/* ── SKIP LINK ── keyboard / screen-reader users jump past the nav straight to content */
-.skip-link {
-  position: fixed; top: 12px; left: 16px; z-index: 100;
-  background: var(--amber); color: var(--navy);
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
-  padding: 10px 18px; text-decoration: none;
-  transform: translateY(-160%); transition: transform .18s var(--ease-out);
-}
-.skip-link:focus { transform: translateY(0); }
-#main-content:focus { outline: none; }
-
-/* ── SCROLL-SPY ── the nav link for the section in view reads as "you are here" */
-.nav-link[aria-current], .mobile-link[aria-current] { color: var(--amber); }
-
-/* ── ORPHAN CONTROL ── keep lone words off the last line of headings and leads */
-.hero-title, .sec-title, .contact-title, .prob-title, .usp-title, .founder-name { text-wrap: balance; }
-.hero-lead, .sec-lead, .contact-lead, .prob-body, .usp-copy, .founder-bio { text-wrap: pretty; }
 </style>
 </head>
 <body>
 
-<a class="skip-link" href="#main-content"><span data-lang="en" class="active">Skip to content</span><span data-lang="nl">Naar inhoud</span></a>
-
 <!-- NAV -->
 <nav class="top">
   <div class="nav-inner">
-    <a href="#" class="nav-logo" aria-label="CARAVAN — home">
+    <a href="#" class="nav-logo">
       <svg width="28" height="22" viewBox="0 0 44 44" fill="none" aria-hidden="true">
         <circle cx="9" cy="22" r="5" fill="#C8922A"/>
         <circle cx="9" cy="22" r="3" fill="#0B1220"/>
@@ -606,7 +558,7 @@ span[data-lang].active { display: inline; }
   </div>
 </nav>
 
-<div class="page" id="main-content" tabindex="-1">
+<div class="page">
 
   <!-- ── HERO ── -->
   <header class="hero">
@@ -654,37 +606,28 @@ span[data-lang].active { display: inline; }
         </button>
       </div>
 
-      <!-- Stage rail (shared by both sides) — orientation across the three protocol phases -->
-      <div class="demo-stages" id="demo-stages">
-        <span class="demo-stage on" data-stage="0"><b>01</b><span data-lang="en" class="active">Request</span><span data-lang="nl">Aanvraag</span></span>
-        <span class="demo-stage-sep"></span>
-        <span class="demo-stage" data-stage="1"><b>02</b><span data-lang="en" class="active">Collect</span><span data-lang="nl">Verzamelen</span></span>
-        <span class="demo-stage-sep"></span>
-        <span class="demo-stage" data-stage="2"><b>03</b><span data-lang="en" class="active">Execute</span><span data-lang="nl">Uitvoeren</span></span>
-      </div>
-
-      <!-- Explanation: full-colour produce thumbnail + plain-language title/sentence + step controls -->
-      <div class="demo-explain">
-        <div class="demo-explain-text">
-          <div class="demo-cap-title" id="demo-cap-title"></div>
-          <div class="demo-cap-sentence" id="demo-cap-sentence"></div>
-        </div>
-        <!-- Sell-side controls -->
-        <div class="demo-step-nav" id="sell-cap-row">
+      <!-- Sell-side caption + nav -->
+      <div class="demo-caption-row" id="sell-cap-row">
+        <div class="demo-step-nav">
           <button class="demo-nav-btn" id="sell-playpause" aria-label="Pause demo">&#9208;</button>
           <button class="demo-nav-btn" id="sell-prev" aria-label="Previous screen">&#8592;</button>
           <span class="demo-step-count" id="sell-count">1 / 7</span>
           <button class="demo-nav-btn" id="sell-next" aria-label="Next screen">&#8594;</button>
-          <span class="demo-pause" id="dpause-indicator" style="opacity:0;transition:opacity .25s"><span data-lang="en" class="active">⏸ Paused</span><span data-lang="nl">⏸ Gepauzeerd</span></span>
         </div>
-        <!-- Buy-side controls -->
-        <div class="demo-step-nav" id="buy-cap-row" style="display:none">
+        <div class="demo-cap" id="dcap">Supply portfolio — empty, ready to upload</div>
+        <div id="dpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click arrow to resume</div>
+      </div>
+
+      <!-- Buy-side caption + nav -->
+      <div class="demo-caption-row" id="buy-cap-row" style="display:none">
+        <div class="demo-step-nav">
           <button class="demo-nav-btn" id="buy-playpause" aria-label="Pause demo">&#9208;</button>
           <button class="demo-nav-btn" id="buy-prev" aria-label="Previous screen">&#8592;</button>
           <span class="demo-step-count" id="buy-count">1 / 5</span>
           <button class="demo-nav-btn" id="buy-next" aria-label="Next screen">&#8594;</button>
-          <span class="demo-pause" id="bpause-indicator" style="opacity:0;transition:opacity .25s"><span data-lang="en" class="active">⏸ Paused</span><span data-lang="nl">⏸ Gepauzeerd</span></span>
         </div>
+        <div class="demo-cap" id="bcap">RFQ inbox — incoming request for radishes</div>
+        <div id="bpause-indicator" style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:0;transition:opacity .3s;margin-left:auto;flex-shrink:0">⏸ paused · click arrow to resume</div>
       </div>
       <div class="demo-browser" id="demo-browser" aria-hidden="true">
         <div class="demo-chrome">
@@ -717,10 +660,10 @@ span[data-lang].active { display: inline; }
           <div class="dbody">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="dstitle">Supply portfolio — click a line to place</div><div class="dbtnp">↑ Upload supply</div></div>
             <div class="drh" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><div></div><div class="dcl">Product</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Delivery</div><div class="dcl" style="text-align:right">Class</div><div class="dcl" style="text-align:right">Status</div></div>
-            <div class="drr dsel" id="drow1" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-q"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-q">Selected</span></div></div>
-            <div class="drr" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-l"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic" src="assets/produce/strawberry.jpg" alt=""><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">Antwerp region · BE</div></div></div><div class="dcv mn" style="text-align:right">18,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>
-            <div class="drr" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-l"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-leek" src="assets/produce/leek.jpg" alt=""><div><div class="dcv">Prei · Herfst</div><div class="dsb">East Flanders · BE</div></div></div><div class="dcv mn" style="text-align:right">30,000 kg</div><div class="dcv mn da2" style="text-align:right">22 May</div><div style="text-align:right"><span class="dbg dbg-c2">Class II</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>
-            <div class="drr" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-f"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div></div><div class="dcv mn" style="text-align:right">15,000 kg</div><div class="dcv mn da2" style="text-align:right">2 Jun</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-f">Future</span></div></div>
+            <div class="drr dsel" id="drow1" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-q"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-q">Selected</span></div></div>
+            <div class="drr" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-l"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">Antwerp region · BE</div></div><div class="dcv mn" style="text-align:right">18,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>
+            <div class="drr" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-l"></span><div><div class="dcv">Prei · Herfst</div><div class="dsb">East Flanders · BE</div></div><div class="dcv mn" style="text-align:right">30,000 kg</div><div class="dcv mn da2" style="text-align:right">22 May</div><div style="text-align:right"><span class="dbg dbg-c2">Class II</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>
+            <div class="drr" style="grid-template-columns:12px 1fr 66px 60px 50px 54px"><span class="dsd dsd-f"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div><div class="dcv mn" style="text-align:right">15,000 kg</div><div class="dcv mn da2" style="text-align:right">2 Jun</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-f">Future</span></div></div>
           </div>
         </div>
 
@@ -759,8 +702,8 @@ span[data-lang].active { display: inline; }
             <div class="dcbox"><div class="dci">✓</div><div class="dct">Deal confirmed &amp; logged</div><div class="dcs">RFQ-2026-0521 · Radijsjes · Ronde Rode · 19 May</div><div class="dcd">€1.31 / kg · 12,000 kg · Buyer B · BE · DDP</div></div>
             <div class="dstitle">My deals</div>
             <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
-            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
-            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div style="display:flex;align-items:center;gap:7px"><img class="dpic" src="assets/produce/strawberry.jpg" alt=""><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
           </div>
         </div>
 
@@ -770,8 +713,8 @@ span[data-lang].active { display: inline; }
             <div class="dcbox"><div class="dci">✓</div><div class="dct">Deal confirmed &amp; logged</div><div class="dcs">RFQ-2026-0521 · Radijsjes · Ronde Rode · 19 May</div><div class="dcd">€1.31 / kg · 12,000 kg · Buyer B · BE · DDP</div></div>
             <div class="dstitle">My deals</div>
             <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
-            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
-            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div style="display:flex;align-items:center;gap:7px"><img class="dpic" src="assets/produce/strawberry.jpg" alt=""><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Buyer B · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">Buyer A · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">18,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.91</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
             <!-- Windows toast notification -->
             <div class="dtoast" id="dtoast">
               <div class="dtoast-bar"></div>
@@ -805,9 +748,9 @@ span[data-lang].active { display: inline; }
           <div class="dbody">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="dstitle">Incoming RFQs</div><div style="font-size:8px;color:rgba(238,232,220,.32);letter-spacing:.08em">Auto-refresh · 30s</div></div>
             <div class="drh" style="grid-template-columns:8px 1fr 70px 64px 52px 54px"><div></div><div class="dcl">Product</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Delivery</div><div class="dcl" style="text-align:right">Expires</div><div class="dcl" style="text-align:right">Status</div></div>
-            <div id="db1row1" class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;background:rgba(200,146,42,.06);border-left:2px solid #C8922A"><span class="dsd dsd-l"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · W19 · Class I · DDP</div></div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div class="dcv mn da2" style="text-align:right">14:30</div><div style="text-align:right"><span class="dbg dbg-l">New</span></div></div>
-            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.65"><span class="dsd dsd-q"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic" src="assets/produce/strawberry.jpg" alt=""><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · W19 · Class I · DDP</div></div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn da2" style="text-align:right">20 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">15:00</div><div style="text-align:right"><span class="dbg dbg-q">Quoted</span></div></div>
-            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.5"><span class="dsd dsd-f"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-leek" src="assets/produce/leek.jpg" alt=""><div><div class="dcv">Prei · Herfst</div><div class="dsb">REO Roeselare · W20 · Class I</div></div></div><div class="dcv mn" style="text-align:right">25,000 kg</div><div class="dcv mn da2" style="text-align:right">26 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">Tmrw</div><div style="text-align:right"><span class="dbg dbg-f">Pending</span></div></div>
+            <div id="db1row1" class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;background:rgba(200,146,42,.06);border-left:2px solid #C8922A"><span class="dsd dsd-l"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · W19 · Class I · DDP</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div class="dcv mn da2" style="text-align:right">14:30</div><div style="text-align:right"><span class="dbg dbg-l">New</span></div></div>
+            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.65"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · W19 · Class I · DDP</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn da2" style="text-align:right">20 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">15:00</div><div style="text-align:right"><span class="dbg dbg-q">Quoted</span></div></div>
+            <div class="drr" style="grid-template-columns:8px 1fr 70px 64px 52px 54px;opacity:.5"><span class="dsd dsd-f"></span><div><div class="dcv">Prei · Herfst</div><div class="dsb">REO Roeselare · W20 · Class I</div></div><div class="dcv mn" style="text-align:right">25,000 kg</div><div class="dcv mn da2" style="text-align:right">26 May</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.35)">Tmrw</div><div style="text-align:right"><span class="dbg dbg-f">Pending</span></div></div>
           </div>
         </div>
 
@@ -881,8 +824,8 @@ span[data-lang].active { display: inline; }
           <div class="dbody">
             <div class="dstitle">My orders</div>
             <div class="drh" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><div></div><div class="dcl">Product</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">My quote</div><div class="dcl" style="text-align:right">Expires</div><div class="dcl" style="text-align:right">Status</div></div>
-            <div id="db4row" class="drr dfin" style="grid-template-columns:8px 1fr 70px 62px 54px 54px;background:rgba(200,146,42,.05)"><span class="dsd dsd-q"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · RFQ-2026-0521</div></div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">€1.31</div><div class="dcountdown" id="db4timer" style="font-size:11px;text-align:right">04:52</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div>
-            <div style="padding:9px 0;opacity:.6"><div class="drr" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><span class="dsd dsd-q"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic" src="assets/produce/strawberry.jpg" alt=""><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · RFQ-2026-0509</div></div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.4)">€3.88</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.3)">—</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div></div>
+            <div id="db4row" class="drr dfin" style="grid-template-columns:8px 1fr 70px 62px 54px 54px;background:rgba(200,146,42,.05)"><span class="dsd dsd-q"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · RFQ-2026-0521</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">€1.31</div><div class="dcountdown" id="db4timer" style="font-size:11px;text-align:right">04:52</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div>
+            <div style="padding:9px 0;opacity:.6"><div class="drr" style="grid-template-columns:8px 1fr 70px 62px 54px 54px"><span class="dsd dsd-q"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">BelOrta · RFQ-2026-0509</div></div><div class="dcv mn" style="text-align:right">8,000 kg</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.4)">€3.88</div><div class="dcv mn" style="text-align:right;color:rgba(238,232,220,.3)">—</div><div style="text-align:right"><span class="dbg dbg-q">Pending</span></div></div></div>
             <div style="margin-top:8px;padding:8px 10px;background:rgba(238,232,220,.03);border:1px solid rgba(238,232,220,.06);font-size:9px;color:rgba(238,232,220,.32);letter-spacing:.05em">You will be notified immediately when the seller makes a decision.</div>
           </div>
         </div>
@@ -894,8 +837,8 @@ span[data-lang].active { display: inline; }
             <div class="dcbox"><div class="dci">✓</div><div class="dct">Your quote was accepted</div><div class="dcs">RFQ-2026-0521 · Radijsjes · Ronde Rode · 19 May</div><div class="dcd">€1.31 / kg · 12,000 kg · Supplier A · DDP</div></div>
             <div class="dstitle">My deals</div>
             <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:5px 0;border-bottom:1px solid rgba(238,232,220,.06)"><div class="dcl">Deal</div><div class="dcl" style="text-align:right">Volume</div><div class="dcl" style="text-align:right">Price</div><div class="dcl" style="text-align:right">Date</div><div class="dcl" style="text-align:right">Status</div></div>
-            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · BE · 19 May</div></div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
-            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div style="display:flex;align-items:center;gap:7px"><img class="dpic" src="assets/produce/strawberry.jpg" alt=""><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">BelOrta · BE · 12 May</div></div></div><div class="dcv mn dm" style="text-align:right">8,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.88</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div class="drr dfin" style="grid-template-columns:1fr 70px 62px 54px 52px;gap:8px"><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">Supplier A · BE · 19 May</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn" style="text-align:right;color:#1D9E75">€1.31</div><div class="dcv mn dm" style="text-align:right">Today</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
+            <div style="display:grid;grid-template-columns:1fr 70px 62px 54px 52px;gap:8px;padding:9px 0;opacity:.6;align-items:center"><div><div class="dcv dm">Aardbeien · Elsanta</div><div class="dsb">BelOrta · BE · 12 May</div></div><div class="dcv mn dm" style="text-align:right">8,000 kg</div><div class="dcv mn dm" style="text-align:right">€3.88</div><div class="dcv mn dm" style="text-align:right">-7d</div><div style="text-align:right"><span class="dbg dbg-g">Logged</span></div></div>
             <!-- Buyer toast -->
             <div class="dtoast" id="dbtoast">
               <div class="dtoast-bar"></div>
@@ -1154,10 +1097,6 @@ span[data-lang].active { display: inline; }
     </p>
     <div class="founders-grid">
       <div class="founder">
-        <div class="founder-photo">
-          <img src="founders/cynthia.jpg" alt="Cynthia Hadinoto, CARAVAN co-founder" loading="lazy" width="140" height="140">
-        </div>
-        <div class="founder-body">
         <div class="founder-tag"><span data-lang="en" class="active">Co-founder · Technical &amp; Product</span><span data-lang="nl">Medeoprichter · Technisch &amp; Product</span></div>
         <div class="founder-name">Cynthia Hadinoto</div>
         <div class="founder-role"><span data-lang="en" class="active">Fixed-income quant turned fresh-produce infrastructure builder</span><span data-lang="nl">Fixed income-kwant omgezet naar versmarkt-infrastructuurbouwer</span></div>
@@ -1165,20 +1104,14 @@ span[data-lang].active { display: inline; }
         <div class="pills">
           <span class="pill">Cargill</span><span class="pill">J.P. Morgan</span><span class="pill">KBC AM</span><span class="pill">Colruyt</span><span class="pill">Solucious</span><span class="pill">Hoogstraten</span>
         </div>
-        </div>
       </div>
       <div class="founder">
-        <div class="founder-photo">
-          <img src="founders/gitte.jpg" alt="Gitte Van Hasselt, CARAVAN co-founder" loading="lazy" width="140" height="140">
-        </div>
-        <div class="founder-body">
         <div class="founder-tag"><span data-lang="en" class="active">Co-founder · Commercial &amp; GTM</span><span data-lang="nl">Medeoprichter · Commercieel &amp; GTM</span></div>
         <div class="founder-name">Gitte Van Hasselt</div>
         <div class="founder-role"><span data-lang="en" class="active">17+ years building new ventures inside and alongside industry leaders</span><span data-lang="nl">16+ jaar nieuwe ventures bouwen binnen en naast marktleiders</span></div>
         <p class="founder-bio"><span data-lang="en" class="active">Most recently Executive Director at EY Studio+, leading innovation and venture-building programmes with clients including Vandemoortele, Greenyard and Ardo. Prior roles at AB InBev Global Innovation, VRT Start-up and Philips. From Hoogstraten herself, with deep roots in the Belgian fresh produce community and direct access to the cooperatives and buyers CARAVAN is built for.</span><span data-lang="nl">Meest recent Executive Director bij EY Studio+, met klanten zoals Vandemoortele, Greenyard en Ardo. Eerdere rollen bij AB InBev, VRT Start-up en Philips. Zelf afkomstig uit Hoogstraten.</span></p>
         <div class="pills">
           <span class="pill">EY Studio+</span><span class="pill">Vandemoortele</span><span class="pill">Greenyard</span><span class="pill">Ardo</span><span class="pill">AB InBev</span><span class="pill">Philips</span>
-        </div>
         </div>
       </div>
     </div>
@@ -1274,7 +1207,6 @@ window.CV_REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-
     document.documentElement.lang=l;
     document.querySelectorAll('[data-lang]').forEach(function(el){el.classList.toggle('active',el.dataset.lang===l);});
     document.querySelectorAll('.lang-btn').forEach(function(btn){btn.classList.toggle('active',btn.dataset.setLang===l);});
-    if(window.CVDemo&&window.CVDemo.current)window.CVDemo.render(window.CVDemo.current);
     try{localStorage.setItem('cvlang',l);}catch(e){}
   }
   document.querySelectorAll('.lang-btn').forEach(function(btn){btn.addEventListener('click',function(){setLang(btn.dataset.setLang);});});
@@ -1347,29 +1279,6 @@ window.CV_REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-
 })();
 </script>
 <script>
-/* Shared demo caption: stage rail + plain-language title/sentence + full-colour produce thumbnail.
-   Both engines (sell + buy) call CVDemo.render(step); setLang re-renders the current step on language switch. */
-window.CVDemo=(function(){
-  function lang(){return (document.documentElement.lang==='nl')?'nl':'en';}
-  function setStage(idx){
-    var els=document.querySelectorAll('#demo-stages .demo-stage');
-    for(var i=0;i<els.length;i++){
-      var n=+els[i].getAttribute('data-stage');
-      els[i].classList.toggle('on',n===idx);
-      els[i].classList.toggle('done',n<idx);
-    }
-  }
-  function render(step){
-    if(!step)return;
-    var l=lang();
-    var ti=document.getElementById('demo-cap-title'),se=document.getElementById('demo-cap-sentence');
-    if(ti)ti.textContent=(l==='nl'?step.titleNL:step.titleEN)||'';
-    if(se)se.textContent=(l==='nl'?step.sentNL:step.sentEN)||'';
-    if(typeof step.stage==='number')setStage(step.stage);
-  }
-  return {render:render,current:null};
-})();
-
 (function(){
 var dcur=0,dtimers=[],dpaused=false,dnextFn=null;
 function dClearAll(){dtimers.forEach(function(t){clearTimeout(t);clearInterval(t);});dtimers=[];}
@@ -1409,7 +1318,7 @@ function dJumpTo(idx){
   dcur=idx;
   dShow(dacts[dcur].s);dDot(dcur);
   D('demo-url').textContent=dacts[dcur].url;
-  window.CVDemo.current=dacts[dcur];window.CVDemo.render(dacts[dcur]);
+  D('dcap').textContent=dacts[dcur].cap;
   if(dacts[dcur].go)DT(function(){dacts[dcur].go();},250);
   dSyncPP();
 }
@@ -1427,34 +1336,13 @@ function dBindArrows(){
 }
 
 var dacts=[
-  {s:'ds1',url:'caravan.trade/supply',dur:3800,go:null,stage:0,product:'crate',
-    titleEN:'Your supply portfolio',titleNL:'Je aanbodportefeuille',
-    sentEN:'Everything you have to sell lives in one place. Start by uploading your lots.',
-    sentNL:'Alles wat je te koop hebt staat op één plek. Begin met het uploaden van je partijen.'},
-  {s:'ds2',url:'caravan.trade/supply',dur:6000,go:dDoS2,stage:0,product:'crate',
-    titleEN:'Upload in seconds',titleNL:'Upload in seconden',
-    sentEN:'Drop in a file and CARAVAN imports your lots — product, volume, quality class and delivery week.',
-    sentNL:'Sleep een bestand erin en CARAVAN importeert je partijen — product, volume, kwaliteitsklasse en leverweek.'},
-  {s:'ds3',url:'caravan.trade/supply',dur:4200,go:dDoS3,stage:0,product:'radish',
-    titleEN:'Pick a lot to place',titleNL:'Kies een partij om te plaatsen',
-    sentEN:'Click any line to turn it into a request for quote. Here: 12,000 kg of radishes.',
-    sentNL:'Klik op een lijn om er een offerteaanvraag van te maken. Hier: 12.000 kg radijzen.'},
-  {s:'ds4',url:'caravan.trade/supply/rfq/new',dur:10000,go:dDoS4,stage:0,product:'radish',
-    titleEN:'Choose who sees it',titleNL:'Kies wie het ziet',
-    sentEN:'Send to your own buyers, vetted newcomers, or anyone with matching open demand — you stay in control.',
-    sentNL:'Stuur naar je eigen kopers, gescreende nieuwkomers of iedereen met passende vraag — jij houdt de controle.'},
-  {s:'ds5',url:'caravan.trade/rfq/2026-0521',dur:10500,go:dDoS5,stage:1,product:'radish',
-    titleEN:'Quotes come back live',titleNL:'Offertes komen live binnen',
-    sentEN:'Buyers respond with binding prices against a countdown. The best one is highlighted automatically.',
-    sentNL:'Kopers reageren met bindende prijzen tegen een aftelklok. De beste wordt automatisch gemarkeerd.'},
-  {s:'ds6',url:'caravan.trade/history',dur:4200,go:null,stage:2,product:'radish',
-    titleEN:'Accept and it is done',titleNL:'Accepteer en klaar',
-    sentEN:'One click locks the deal. It is confirmed and written to your audit trail — €1.31/kg, 12,000 kg.',
-    sentNL:'Eén klik bevestigt de deal. Vastgelegd in je audit trail — €1,31/kg, 12.000 kg.'},
-  {s:'ds7',url:'caravan.trade/history',dur:5300,go:dDoS7,stage:2,product:'radish',
-    titleEN:'Both sides notified',titleNL:'Beide partijen verwittigd',
-    sentEN:'Buyer and seller get the same confirmation by email — no chasing, no ambiguity.',
-    sentNL:'Koper en verkoper krijgen dezelfde bevestiging per e-mail — geen achtervolging, geen onduidelijkheid.'},
+  {s:'ds1',url:'caravan.trade/supply',cap:'Supply portfolio — empty, ready to upload',dur:3500,go:null},
+  {s:'ds2',url:'caravan.trade/supply',cap:'Uploading supply — 4 lines importing',dur:6000,go:dDoS2},
+  {s:'ds3',url:'caravan.trade/supply',cap:'Supply loaded — click a line to place on the market',dur:3500,go:dDoS3},
+  {s:'ds4',url:'caravan.trade/supply/rfq/new',cap:'Counterparties — your network, new buyers, open demand',dur:10000,go:dDoS4},
+  {s:'ds5',url:'caravan.trade/rfq/2026-0521',cap:'RFQ live — countdown running, quotes arriving one by one',dur:10500,go:dDoS5},
+  {s:'ds6',url:'caravan.trade/history',cap:'Deal confirmed — logged in your audit trail',dur:3800,go:null},
+  {s:'ds7',url:'caravan.trade/history',cap:'Both parties notified — deal confirmation sent by email',dur:5300,go:dDoS7},
 ];
 
 function dNext(){
@@ -1464,7 +1352,7 @@ function dNext(){
   dcur=(dcur+1)%dacts.length;
   dShow(dacts[dcur].s);dDot(dcur);
   D('demo-url').textContent=dacts[dcur].url;
-  window.CVDemo.current=dacts[dcur];window.CVDemo.render(dacts[dcur]);
+  D('dcap').textContent=dacts[dcur].cap;
   dnextFn=dNext;
   if(dacts[dcur].go)DT(function(){if(!dpaused)dacts[dcur].go();},250);
   DT(dNext,dacts[dcur].dur);
@@ -1479,10 +1367,10 @@ function dDoS2(){
   DT(function(){
     clearInterval(g);bar.style.width='100%';st.textContent='Done — 4 lines imported';
     rows.innerHTML=[
-      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.05s"><span class="dsd dsd-l"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>',
-      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.2s"><span class="dsd dsd-l"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic" src="assets/produce/strawberry.jpg" alt=""><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">Antwerp region · BE</div></div></div><div class="dcv mn" style="text-align:right">18,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>',
-      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.35s"><span class="dsd dsd-l"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-leek" src="assets/produce/leek.jpg" alt=""><div><div class="dcv">Prei · Herfst</div><div class="dsb">East Flanders · BE</div></div></div><div class="dcv mn" style="text-align:right">30,000 kg</div><div class="dcv mn da2" style="text-align:right">22 May</div><div style="text-align:right"><span class="dbg dbg-c2">Class II</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>',
-      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.5s"><span class="dsd dsd-f"></span><div style="display:flex;align-items:center;gap:7px"><img class="dpic dpic-radish" src="assets/produce/radish.jpg" alt=""><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div></div><div class="dcv mn" style="text-align:right">15,000 kg</div><div class="dcv mn da2" style="text-align:right">2 Jun</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-f">Future</span></div></div>',
+      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.05s"><span class="dsd dsd-l"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div><div class="dcv mn" style="text-align:right">12,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>',
+      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.2s"><span class="dsd dsd-l"></span><div><div class="dcv">Aardbeien · Elsanta</div><div class="dsb">Antwerp region · BE</div></div><div class="dcv mn" style="text-align:right">18,000 kg</div><div class="dcv mn da2" style="text-align:right">19 May</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>',
+      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.35s"><span class="dsd dsd-l"></span><div><div class="dcv">Prei · Herfst</div><div class="dsb">East Flanders · BE</div></div><div class="dcv mn" style="text-align:right">30,000 kg</div><div class="dcv mn da2" style="text-align:right">22 May</div><div style="text-align:right"><span class="dbg dbg-c2">Class II</span></div><div style="text-align:right"><span class="dbg dbg-l">Available</span></div></div>',
+      '<div class="drr dfin" style="grid-template-columns:12px 1fr 66px 60px 50px 54px;gap:8px;animation-delay:.5s"><span class="dsd dsd-f"></span><div><div class="dcv">Radijsjes · Ronde Rode</div><div class="dsb">West Flanders · BE</div></div><div class="dcv mn" style="text-align:right">15,000 kg</div><div class="dcv mn da2" style="text-align:right">2 Jun</div><div style="text-align:right"><span class="dbg dbg-c1">Class I</span></div><div style="text-align:right"><span class="dbg dbg-f">Future</span></div></div>',
     ].join('');
   },2800);
 }
@@ -1543,7 +1431,6 @@ function dDoS7(){
 
 dBindArrows();
 (function(){var b=D('sell-playpause');if(b)b.addEventListener('click',function(){dSetPaused(!dpaused);});})();
-window.CVDemo.current=dacts[0];window.CVDemo.render(dacts[0]);
 if(window.CV_REDUCED){ dSetPaused(true); } else { DT(dNext,dacts[0].dur); }
 dSyncPP();
 
@@ -1552,7 +1439,7 @@ window._dRestart=function(){
   dHide(dacts[dcur].s);dcur=0;
   dShow(dacts[0].s);dDot(0);
   D('demo-url').textContent=dacts[0].url;
-  window.CVDemo.current=dacts[0];window.CVDemo.render(dacts[0]);
+  D('dcap').textContent=dacts[0].cap;
   if(window.CV_REDUCED){ dSetPaused(true); return; }
   if(dacts[0].go)DT(function(){dacts[0].go();},250);
   DT(dNext,dacts[0].dur);
@@ -1596,32 +1483,17 @@ function bJumpTo(idx){
   bcur=idx;
   bShow(bacts[bcur].s);bDot(bcur);
   BD('buy-demo-url').textContent=bacts[bcur].url;
-  window.CVDemo.current=bacts[bcur];window.CVDemo.render(bacts[bcur]);
+  BD('bcap').textContent=bacts[bcur].cap;
   if(bacts[bcur].go)BT(function(){bacts[bcur].go();},250);
   bSyncPP();
 }
 
 var bacts=[
-  {s:'db1',url:'caravan.trade/inbox',dur:4200,go:bDoB1,stage:0,product:'radish',
-    titleEN:'An RFQ lands in your inbox',titleNL:'Een aanvraag in je inbox',
-    sentEN:'A grower is offering 12,000 kg of radishes. New requests surface the moment they are sent.',
-    sentNL:'Een teler biedt 12.000 kg radijzen aan. Nieuwe aanvragen verschijnen zodra ze verzonden zijn.'},
-  {s:'db2',url:'caravan.trade/rfq/2026-0521',dur:4600,go:bDoB2,stage:0,product:'radish',
-    titleEN:'See the full picture',titleNL:'Zie het volledige plaatje',
-    sentEN:'Product, volume, quality, delivery and the seller’s track record — all before you quote.',
-    sentNL:'Product, volume, kwaliteit, levering en het trackrecord van de verkoper — allemaal vóór je een prijs geeft.'},
-  {s:'db3',url:'caravan.trade/rfq/2026-0521/quote',dur:8800,go:bDoB3,stage:1,product:'radish',
-    titleEN:'Quote with confidence',titleNL:'Geef met vertrouwen een prijs',
-    sentEN:'Set your volume and price against CARAVAN’s indicative range. Your quote is binding until it expires.',
-    sentNL:'Stel je volume en prijs in tegenover de indicatieve marktrange. Je offerte is bindend tot ze vervalt.'},
-  {s:'db4',url:'caravan.trade/orders',dur:6300,go:bDoB4,stage:1,product:'radish',
-    titleEN:'Sent — now you wait',titleNL:'Verzonden — nu wachten',
-    sentEN:'Your quote is in. You are notified the instant the seller decides.',
-    sentNL:'Je offerte staat erin. Je wordt verwittigd zodra de verkoper beslist.'},
-  {s:'db5',url:'caravan.trade/history',dur:5300,go:bDoB5,stage:2,product:'radish',
-    titleEN:'You won the lot',titleNL:'Je won de partij',
-    sentEN:'Your quote was accepted. The deal is confirmed and logged for both sides — €1.31/kg.',
-    sentNL:'Je offerte is aanvaard. De deal is bevestigd en vastgelegd voor beide partijen — €1,31/kg.'},
+  {s:'db1',url:'caravan.trade/inbox',cap:'RFQ inbox — new request for 12,000 kg of radishes',dur:3800,go:bDoB1},
+  {s:'db2',url:'caravan.trade/rfq/2026-0521',cap:'RFQ detail — reviewing product, volume and seller profile',dur:4400,go:bDoB2},
+  {s:'db3',url:'caravan.trade/rfq/2026-0521/quote',cap:'Submitting quote — adjusting volume, typing price, binding until 14:30',dur:8800,go:bDoB3},
+  {s:'db4',url:'caravan.trade/orders',cap:'Quote sent — waiting for seller decision, countdown running',dur:6300,go:bDoB4},
+  {s:'db5',url:'caravan.trade/history',cap:'Quote accepted — deal confirmed and logged',dur:5300,go:bDoB5},
 ];
 
 function bNext(){
@@ -1631,7 +1503,7 @@ function bNext(){
   bcur=(bcur+1)%bacts.length;
   bShow(bacts[bcur].s);bDot(bcur);
   BD('buy-demo-url').textContent=bacts[bcur].url;
-  window.CVDemo.current=bacts[bcur];window.CVDemo.render(bacts[bcur]);
+  BD('bcap').textContent=bacts[bcur].cap;
   if(bacts[bcur].go)BT(function(){if(!bpaused)bacts[bcur].go();},250);
   BT(bNext,bacts[bcur].dur);
 }
@@ -1730,7 +1602,7 @@ window._bStart=function(){
   bHide(bacts[bcur].s);bcur=0;
   bShow(bacts[0].s);bDot(0);
   BD('buy-demo-url').textContent=bacts[0].url;
-  window.CVDemo.current=bacts[0];window.CVDemo.render(bacts[0]);
+  BD('bcap').textContent=bacts[0].cap;
   if(window.CV_REDUCED){ bpaused=true; bSyncPP(); return; }
   if(bacts[0].go)BT(function(){bacts[0].go();},250);
   BT(bNext,bacts[0].dur);
@@ -1838,40 +1710,6 @@ window.dSwitchPersp=function(side){
         status.className='cv-form-status cv-form-error';
       }
     });
-  });
-})();
-</script>
-<script>
-/* ── SCROLL-SPY ── mark the nav link of the section currently in view with aria-current.
-   Uses aria-current (not .active) because .active is already owned by the language toggle. */
-(function(){
-  if(!('IntersectionObserver' in window))return;
-  var ids=['problem','protocol','founders','contact'];
-  var sections=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
-  if(!sections.length)return;
-  function setCurrent(id){
-    document.querySelectorAll('.nav-link[aria-current],.mobile-link[aria-current]').forEach(function(a){a.removeAttribute('aria-current');});
-    if(!id)return;
-    document.querySelectorAll('.nav-link[href="#'+id+'"],.mobile-link[href="#'+id+'"]').forEach(function(a){a.setAttribute('aria-current','location');});
-  }
-  var state={};
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){state[e.target.id]=e.isIntersecting;});
-    var current=null;
-    for(var i=0;i<sections.length;i++){if(state[sections[i].id]){current=sections[i].id;break;}}
-    setCurrent(current);
-  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
-  sections.forEach(function(s){io.observe(s);});
-})();
-
-/* ── LOGO → TOP ── scroll cleanly to the top without leaving a "#" in the URL */
-(function(){
-  var logo=document.querySelector('.nav-logo');
-  if(!logo)return;
-  logo.addEventListener('click',function(e){
-    e.preventDefault();
-    window.scrollTo({top:0,behavior:window.CV_REDUCED?'auto':'smooth'});
-    if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);
   });
 })();
 </script>
